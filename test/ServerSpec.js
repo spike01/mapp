@@ -12,4 +12,10 @@ describe('homepage', function() {
       expect(browser.success).to.be.true
     });
   });
+
+  it('Returns response code 404 when visiting a page not listed in the routes', function(){
+    browser.visit('/other', function(){
+      expect(browser.success).to.be.false
+    });
+  });
 });
