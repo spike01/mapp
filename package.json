@@ -1,20 +1,20 @@
 {
   "name": "mapp",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Twitter mood map",
   "main": "server.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "chai": "^1.9.2",
     "express": "^4.9.7",
-    "mocha": "^1.21.5",
-    "twit": "^1.1.18",
-    "zombie": "^2.0.8"
+    "socket.io": "^1.1.0",
+    "twit": "^1.1.18"
   },
   "devDependencies": {
-    "mocha": "^1.21.5"
+    "mocha": "^1.21.5",
+    "zombie": "^2.0.8",
+    "chai": "^1.9.2"
   },
   "scripts": {
     "test": "mocha"
