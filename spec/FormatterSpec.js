@@ -4,8 +4,8 @@ describe("Formatter", function(){
     expect(format(unformattedTweet).text).toEqual(unformattedTweet.text);
   })
 
-  it("should output the coordinates of a tweet", function() {
-    expect(format(unformattedTweet).coords).toEqual(unformattedTweet.geo.coordinates);
+  it("should output the coordinates of a tweet so that there are no negative values", function() {
+    expect(format(unformattedTweet).coords).toEqual([ 63.84097, 207.92473 ]);
   })
 
   it("should output the language of a tweet", function() {
