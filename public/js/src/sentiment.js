@@ -1,10 +1,11 @@
-var sentiment = 0;
+var sentiment;
 
 function analyseSentiment(text, lang) {
-  var sentence = _removePunctuation(text).split(' ');
-  sentence.forEach(function(word) {
+  sentiment = 0;
+  var words = _removePunctuation(text).split(' ');
+  words.forEach(function(word) {
     if(sentimentLookup[lang][word]) {
-      _updateSentiment();
+      _updateSentiment(lang, word);
     }
   })
   return sentiment;
@@ -16,8 +17,8 @@ function _removePunctuation(text) {
   return text.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
 }
 
-function _updateSentiment(tweet, word) {
-  sentiment += sentimentLookup[tweet.lang][word];
+function _updateSentiment(lang, word) {
+  sentiment += sentimentLookup[lang][word];
 }
 
 module.exports = sentiment;
