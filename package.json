@@ -12,9 +12,10 @@
     "twit": "^1.1.18"
   },
   "devDependencies": {
+    "chai": "^1.9.2",
+    "jasmine-node": "^1.14.5",
     "mocha": "^1.21.5",
-    "zombie": "^2.0.8",
-    "chai": "^1.9.2"
+    "zombie": "^2.0.8"
   },
   "scripts": {
     "test": "mocha"
