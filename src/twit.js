@@ -9,9 +9,10 @@ var auth = new Twit({
 
 var stream;
 var currentStatus = false
+var world = ['-180','-90','180','90'];
 
 this.openStream = function () {
-  stream = auth.stream('statuses/sample')
+  stream = auth.stream('status/filter', { location: world })
   stream.on('tweet', function(tweet) { 
     return tweet
   })

@@ -1,11 +1,10 @@
 var sentiment;
 
-function analyseSentiment(text, lang) {
+this.analyseSentiment = function (object) {
   sentiment = 0;
-  var words = _removePunctuation(text).split(' ');
-  words.forEach(function(word) {
-    if(sentimentLookup[lang][word]) {
-      _updateSentiment(lang, word);
+  object.words.forEach(function(word) {
+    if(sentimentLookup[object.lang][word]) {
+      _updateSentiment(object.lang, word);
     }
   })
   return sentiment;
@@ -13,12 +12,6 @@ function analyseSentiment(text, lang) {
 
 //private
 
-function _removePunctuation(text) {
-  return text.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
-}
-
 function _updateSentiment(lang, word) {
   sentiment += sentimentLookup[lang][word];
 }
-
-module.exports = sentiment;
