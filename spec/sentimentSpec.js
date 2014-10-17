@@ -1,5 +1,3 @@
-specHelper = require('../SpecHelper.js')
-
 describe("analyseSentiment", function() {
 
 	it("should return 1 when text includes 'accepting'", function() {

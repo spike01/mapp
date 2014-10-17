@@ -38,5 +38,4 @@ describe("tweetStream", function() {
       twitModule.closeStream()
     })
   })
-    
 })
