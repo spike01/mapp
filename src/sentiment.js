@@ -21,4 +21,3 @@ function _updateSentiment(tweet, word) {
 }
 
 module.exports = sentiment;
-
