@@ -16,8 +16,12 @@ describe("analyseSentiment", function() {
 		expect(analyseSentiment(weirdTweet.text, weirdTweet.lang)).toEqual(0)
 	})
 
-	it("should look up the tweet's language for analysis", function() {
+	it("can analyse a Spanish tweet", function() {
 		expect(analyseSentiment(pissedOffSpanishTweet.text, pissedOffSpanishTweet.lang)).toEqual(-3);
+	})
+
+	it("can analyse a Turkish tweet", function() {
+		expect(analyseSentiment(turkishTweet.text, turkishTweet.lang)).toEqual(-3);
 	})
 
 });
