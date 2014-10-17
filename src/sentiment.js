@@ -1,18 +1,24 @@
-function removePunctuation(text) {
-	return text.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+var sentiment = 0;
+
+function analyseSentiment(text, lang) {
+  var sentence = _removePunctuation(text).split(' ');
+  sentence.forEach(function(word) {
+    if(sentimentLookup[lang][word]) {
+      _updateSentiment();
+    }
+  })
+  return sentiment;
 }
 
-function updateSentiment(tweet, word) {
-	tweet.sentiment += sentimentLookup[tweet.lang][word];
+//private
+
+function _removePunctuation(text) {
+  return text.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
 }
 
-function analyseSentiment(tweet) {
-	var tweetText = tweet.text;
-	var sentence = removePunctuation(tweetText).split(' ');
-	sentence.forEach(function(word) {
-    	if(sentimentLookup[tweet.lang][word]){
-    		updateSentiment(tweet, word);
-    	}
- 	})
-
+function _updateSentiment(tweet, word) {
+  sentiment += sentimentLookup[tweet.lang][word];
 }
+
+module.exports = sentiment;
+
