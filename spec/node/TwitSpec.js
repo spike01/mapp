@@ -1,5 +1,5 @@
-var twitModule = require('./mockTwit.js')
-var tweet = require('./mockTweet.js')
+var twitModule = require('./mocks/mockTwit.js')
+var tweet = require('./mocks/mockTweet.js')
 
 describe("tweetStream", function() {
 
