@@ -115,5 +115,5 @@ exports.unformattedTweet = { created_at: 'Thu Oct 16 10:50:02 +0000 2014',
   retweeted: false,
   possibly_sensitive: false,
   filter_level: 'medium',
-  lang: 'somethingunlikely',
+  lang: 'en',
   timestamp_ms: '1413456602545' }
