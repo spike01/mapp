@@ -1,6 +1,6 @@
 var sentiment;
 
-this.analyseSentiment = function (object) {
+exports.analyseSentiment = function (object) {
   sentiment = 0;
   object.words.forEach(function(word) {
     if(sentimentLookup[object.lang][word]) {

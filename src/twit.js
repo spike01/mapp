@@ -11,7 +11,7 @@ var stream;
 var isOpen = false
 var world = ['-180','-90','180','90'];
 
-this.openStream = function () {
+exports.openStream = function () {
   stream = auth.stream('status/filter', { location: world })
   stream.on('tweet', function(tweet) { 
     return tweet
@@ -20,19 +20,19 @@ this.openStream = function () {
   console.log('Stream opened')
 };
 
-this.closeStream = function () {
+exports.closeStream = function () {
   stream.stop()
   isOpen = false
   console.log('Stream closed')
 };
 
-this.reopenStream = function () {
+exports.reopenStream = function () {
   stream.start()
   isOpen = true
   console.log('Stream reopened')
 };
 
-this.isOpen = function () {
+exports.isOpen = function () {
   return isOpen
 }
 
