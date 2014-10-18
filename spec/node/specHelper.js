@@ -35,7 +35,7 @@ exports.mockSad = {
 }
 
 exports.weirdTweet = {
-  text: "happy accepting torture",
+  text: "happy accepting torture?",
   coords: [ -26.15903, 27.92473 ],
   lang: 'en',
   sentiment: 0
@@ -44,6 +44,14 @@ exports.weirdTweet = {
 exports.mockWeird = {
   words: ["happy", "accepting", "torture"],
   lang: 'en'
+}
+
+exports.lotsOfPunctuation = {
+  text: "®† ¥¨∆∫hell√ƒ ®†¥ ¨death, ^∆~∫ƒ®∞ ¥¨^∞¢ ´#∑´®†¥ hel lo",
+  coords: [ -26.15303, 27.96473 ],
+  lang: "en",
+  sentiment: 0
+
 }
 
 exports.spanishTweet = {

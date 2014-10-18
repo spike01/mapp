@@ -5,4 +5,3 @@ exports.format = function (tweet){
             sentiment: 0
           };
 }
-
