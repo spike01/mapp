@@ -1,6 +1,6 @@
 var Twit = require('twit')
-var events = require('events');
-var eventEmitter = new events.EventEmitter();
+var globalEmitter = require('./globalEmitter.js');
+
 
 var auth = new Twit({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -16,7 +16,7 @@ var world = ['-180','-90','180','90'];
 exports.openStream = function () {
   stream = auth.stream('statuses/filter', { locations: world });
   stream.on('tweet', function(tweet) {
-    eventEmitter.emit("tweet", tweet);
+    globalEmitter.emit("tweet", tweet);
   });
 
   isOpen = true
@@ -39,7 +39,8 @@ exports.isOpen = function () {
   return isOpen
 }
 
-
-
-
-
+// exports.catcher = function () {
+//   eventEmitter.on('tweet', function(tweet) {
+//   return tweet;
+// })
+//};
