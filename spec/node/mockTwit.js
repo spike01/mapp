@@ -1,20 +1,20 @@
 var tweet = require('./mockTweet.js')
 
-var currentStatus = false
+var isOpen = false
 
 this.openStream = function() {
-  currentStatus = true
+  isOpen = true
   return tweet
 };
 
 this.closeStream = function() {
-  currentStatus = false 
+  isOpen = false 
 };
 
 this.reopenStream = function() {
-  currentStatus = true
+  isOpen = true
 };
 
-this.currentStatus = function() {
-  return currentStatus
+this.isOpen = function() {
+  return isOpen
 };

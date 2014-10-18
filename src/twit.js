@@ -8,7 +8,7 @@ var auth = new Twit({
   });
 
 var stream;
-var currentStatus = false
+var isOpen = false
 var world = ['-180','-90','180','90'];
 
 this.openStream = function () {
@@ -16,24 +16,24 @@ this.openStream = function () {
   stream.on('tweet', function(tweet) { 
     return tweet
   })
-  currentStatus = true
+  isOpen = true
   console.log('Stream opened')
 };
 
 this.closeStream = function () {
   stream.stop()
-  currentStatus = false
+  isOpen = false
   console.log('Stream closed')
 };
 
 this.reopenStream = function () {
   stream.start()
-  currentStatus = true
+  isOpen = true
   console.log('Stream reopened')
 };
 
-this.currentStatus = function () {
-  return currentStatus
+this.isOpen = function () {
+  return isOpen
 }
 
 
