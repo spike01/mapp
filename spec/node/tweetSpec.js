@@ -1,5 +1,3 @@
-sampleTweet = require('./specHelper.js')
-
 describe("Tweet", function(){
 
   it("should not be empty", function(){
