@@ -40,9 +40,3 @@ exports.reopenStream = function () {
 exports.isOpen = function () {
   return isOpen
 }
-
-// exports.catcher = function () {
-//   eventEmitter.on('tweet', function(tweet) {
-//   return tweet;
-// })
-//};
