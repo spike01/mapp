@@ -18,7 +18,7 @@ server.get('/', function(request, response){
 tweetStream.openStream();
 
 globalEmitter.on('tweet', function(tweet) {
-   console.log(tweet);
+   console.log(format(tweet));
 });
 
 

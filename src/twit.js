@@ -16,7 +16,9 @@ var world = ['-180','-90','180','90'];
 exports.openStream = function () {
   stream = auth.stream('statuses/filter', { locations: world });
   stream.on('tweet', function(tweet) {
-    globalEmitter.emit("tweet", tweet);
+    if(tweet.geo != null) {
+      globalEmitter.emit("tweet", tweet);
+    }
   });
 
   isOpen = true
