@@ -1,7 +1,7 @@
 exports.strip = function (object) {
   var words = _removePunctuation(object.text).split(' ');
   var language = object.lang;
-  return { words: words, language: language }
+  return { words: words, lang: language }
 
 }
 

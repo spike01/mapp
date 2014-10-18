@@ -5,11 +5,21 @@ exports.acceptingTweet = {
   sentiment: 0
 }
 
+exports.mockAccepting = {
+  words: ["accepting", "stuff"],
+  lang: 'en'
+}
+
 exports.happyTweet = {
   text: "happy stuff",
   coords: [ -26.15903, 27.92473 ],
   lang: 'en',
   sentiment: 0
+}
+
+exports.mockHappy = {
+  words: ["happy", "stuff"],
+  lang: 'en'
 }
 
 exports.sadTweet = {
@@ -19,6 +29,11 @@ exports.sadTweet = {
   sentiment: 0
 }
 
+exports.mockSad = {
+  words: ["sad", "stuff"],
+  lang: 'en'
+}
+
 exports.weirdTweet = {
   text: "happy accepting torture",
   coords: [ -26.15903, 27.92473 ],
@@ -26,11 +41,21 @@ exports.weirdTweet = {
   sentiment: 0
 }
 
-exports.pissedOffSpanishTweet = {
-  text: "¿por que carajos soy un pendejo?",
+exports.mockWeird = {
+  words: ["happy", "accepting", "torture"],
+  lang: 'en'
+}
+
+exports.spanishTweet = {
+  text: "pendejo?",
   coords: [ 40.467812, -3.874747 ],
   lang: 'es',
   sentiment: 0
+}
+
+exports.mockSpanish = {
+  words: ["pendejo"],
+  lang: 'es'
 }
 
 exports.turkishTweet = {
@@ -38,6 +63,11 @@ exports.turkishTweet = {
   coords: [ 41.076211, 29.012198 ],
   lang: 'tr',
   sentiment: 0
+}
+
+exports.mockTurkish = {
+  words: ["İşi", "bırakmak", "şart", "olduysa", "gitmemek", "için", "bi", "engel", "yok"],
+  lang: 'tr'
 }
 
 exports.unformattedTweet = { created_at: 'Thu Oct 16 10:50:02 +0000 2014',
