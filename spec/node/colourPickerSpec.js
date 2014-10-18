@@ -1,4 +1,4 @@
-pickColour = require('../../src/colourSetter.js').pickColour
+pickColour = require('../../src/colourPicker.js').pickColour
 
 describe("Colour setter", function() {
 
