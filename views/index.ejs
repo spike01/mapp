@@ -3,21 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mapp</title>
+	<style type="text/css">
+		#container {
+			background-color: black;	
+		}
+
+		canvas {
+			background-color: #ddd;
+		}
+	</style>
 </head>
 <body>
-  hello
 	<div id="container"></div>
 
   <script src="/socket.io/socket.io.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="js/jquery-2.1.1.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      var socket = io.connect('http://localhost');
-
-      socket.on('object', function(data){
-        // console.log(data);
-      })
-    })
-  </script>
+  <script src="js/socket.js"></script>
 </body>
 </html>

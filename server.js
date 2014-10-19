@@ -30,6 +30,10 @@ io.on('connection', function(socket) {
     console.log(socketObject)
     socket.emit('object', socketObject);
   });
+
+  socket.on('disconnect', function() {
+    tweetStream.closeStream();
+  })
 });
 
 http.listen(3000, function(){
