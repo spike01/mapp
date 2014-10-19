@@ -19,6 +19,7 @@
     "zombie": "^2.0.8"
   },
   "scripts": {
+    "start": "node server",
     "test": "mocha"
   },
   "repository": {

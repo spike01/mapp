@@ -18,6 +18,10 @@ server.get('/', function(request, response){
   response.render('index');
 });
 
+server.get('/helloworld', function(request, response){
+  response.render('index');
+});
+
 io.on('connection', function(socket) { 
   tweetStream.openStream();
   globalEmitter.on('tweet', function(object) {
