@@ -26,7 +26,7 @@ exports.sadTweet = {
   text: "sad stuff",
   coords: [ -26.15903, 27.92473 ],
   lang: 'en',
-  sentiment: -2
+  colour: 'red'
 }
 
 exports.mockSad = {

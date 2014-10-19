@@ -1,17 +1,17 @@
-strip = require('../../src/stripper.js').strip
+stripPunctuationOf = require('../../src/stripper.js').stripPunctuationOf
 
-describe('Stripper', function() {
+describe('stripPunctuationOf', function() {
 
-	it("has a key for words", function() {
-		expect(strip(weirdTweet).words).toBeDefined();
+	it("returns an object containing a key for words", function() {
+		expect(stripPunctuationOf(weirdTweet).words).toBeDefined();
 	});
 
 	it("strips punctuation from the text", function() {
-		expect(strip(lotsOfPunctuation).words).toEqual([ '', 'hell', 'death', 'hel', 'lo' ]);
+		expect(stripPunctuationOf(lotsOfPunctuation).words).toEqual([ '', 'hell', 'death', 'hel', 'lo' ]);
 	});
 
 	it("returns the language of the tweet", function() {
-		expect(strip(happyTweet).lang).toEqual('en');
+		expect(stripPunctuationOf(happyTweet).lang).toEqual('en');
 	});
 
 
