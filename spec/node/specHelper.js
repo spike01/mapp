@@ -2,7 +2,7 @@ exports.acceptingTweet = {
   text: "accepting stuff",
   coords: [ -26.15903, 27.92473 ],
   lang: 'en',
-  sentiment: 1
+  colour: 'yellow'
 }
 
 exports.mockAccepting = {
@@ -14,7 +14,7 @@ exports.happyTweet = {
   text: "happy stuff",
   coords: [ -26.15903, 27.92473 ],
   lang: 'en',
-  sentiment: 3
+  colour: 'yellow'
 }
 
 exports.mockHappy = {
@@ -38,7 +38,7 @@ exports.weirdTweet = {
   text: "happy accepting torture?",
   coords: [ -26.15903, 27.92473 ],
   lang: 'en',
-  sentiment: 0
+  colour: '#54A6E4'
 }
 
 exports.mockWeird = {
@@ -50,7 +50,7 @@ exports.lotsOfPunctuation = {
   text: "®† ¥¨∆∫hell√ƒ ®†¥ ¨death, ^∆~∫ƒ®∞ ¥¨^∞¢ ´#∑´®†¥ hel lo",
   coords: [ -26.15303, 27.96473 ],
   lang: "en",
-  sentiment: 0
+  colour: '#54A6E4'
 
 }
 
@@ -58,7 +58,7 @@ exports.spanishTweet = {
   text: "pendejo?",
   coords: [ 40.467812, -3.874747 ],
   lang: 'es',
-  sentiment: -3
+  colour: 'red'
 }
 
 exports.mockSpanish = {
@@ -70,7 +70,7 @@ exports.turkishTweet = {
   text: 'İşi bırakmak şart olduysa gitmemek için bi engel yok .',
   coords: [ 41.076211, 29.012198 ],
   lang: 'tr',
-  sentiment: -3
+  colour: 'red'
 }
 
 exports.mockTurkish = {

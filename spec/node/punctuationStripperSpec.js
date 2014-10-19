@@ -1,4 +1,4 @@
-stripPunctuationOf = require('../../src/stripper.js').stripPunctuationOf
+stripPunctuationOf = require('../../src/punctuationStripper.js').stripPunctuationOf
 
 describe('stripPunctuationOf', function() {
 

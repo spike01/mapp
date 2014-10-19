@@ -1,13 +1,13 @@
 var express = require('express');
 var server = express();
 var format = require('./src/formatter.js').format;
-var stripPunctuationOf = require('./src/stripper.js').stripPunctuationOf;
+var stripPunctuationOf = require('./src/punctuationStripper.js').stripPunctuationOf;
 var analyseSentiment = require('./src/sentimentAnalysis.js').analyseSentiment;
 var pickColour = require('./src/colourPicker.js').pickColour;
 var globalEmitter = require('./src/globalEmitter.js');
 var http = require('http').Server(server);
 var io = require('socket.io')(http);
-var socketStripper = require('./src/socketStripper.js').socketStripper;
+var stripForSocket = require('./src/socketStripper.js').stripForSocket;
 
 var tweetStream = require('./src/twit.js');
 
@@ -21,12 +21,13 @@ server.get('/', function(request, response){
 io.on('connection', function(socket) { 
   tweetStream.openStream();
   globalEmitter.on('tweet', function(object) {
-  	formattedObject = format(object);
-    var strippedObject = stripPunctuationOf(formattedObject);
+  	var formattedObject, strippedObject, socketObject;
+    formattedObject = format(object);
+    strippedObject = stripPunctuationOf(formattedObject);
     formattedObject.sentiment = analyseSentiment(strippedObject);
     formattedObject.colour = pickColour(formattedObject.sentiment);
-    var socketStrippedObject = socketStripper(formattedObject);
-    socket.emit('object', socketStrippedObject);
+    socketObject = stripForSocket(formattedObject);
+    socket.emit('object', socketObject);
   });
 });
 
