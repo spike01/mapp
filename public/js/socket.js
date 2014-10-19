@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var socket = io.connect('http://localhost');
+  var socket = io.connect('/');
 
 
   var dataStore = []
@@ -41,7 +41,6 @@ $(document).ready(function(){
     }
   }
 
-setInterval(draw, 50)
 
   function addData(data) {
     dataStore[dataStore.length] = [(data.coords[1])*10, (data.coords[0])*10, data.colour] 
