@@ -25,7 +25,7 @@ io.on('connection', function(socket) {
     formattedObject = formatTweet(object);
     strippedObject = stripPunctuationOf(formattedObject);
     sentiment = analyseSentiment(strippedObject);
-    formattedObject.colour = pickColour(formattedObject.sentiment);
+    formattedObject.colour = pickColour(sentiment);
     socketObject = stripForSocket(formattedObject);
     console.log(socketObject)
     socket.emit('object', socketObject);
