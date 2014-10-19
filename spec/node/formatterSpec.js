@@ -14,8 +14,4 @@ describe("Formatter", function() {
     expect(format(unformattedTweet).lang).toEqual(unformattedTweet.lang);
   })
 
-  it("outputs a sentiment value of 0", function() {
-    expect(format(unformattedTweet).sentiment).toEqual(0);
-  })
-
 })
