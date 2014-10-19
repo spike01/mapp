@@ -1,6 +1,6 @@
 var express = require('express');
 var server = express();
-var format = require('./src/formatter.js').format;
+var formatTweet = require('./src/tweetFormatter.js').formatTweet;
 var stripPunctuationOf = require('./src/punctuationStripper.js').stripPunctuationOf;
 var analyseSentiment = require('./src/sentimentAnalysis.js').analyseSentiment;
 var pickColour = require('./src/colourPicker.js').pickColour;
@@ -21,12 +21,13 @@ server.get('/', function(request, response){
 io.on('connection', function(socket) { 
   tweetStream.openStream();
   globalEmitter.on('tweet', function(object) {
-  	var formattedObject, strippedObject, socketObject;
-    formattedObject = format(object);
+  	var formattedObject, strippedObject, sentiment, socketObject;
+    formattedObject = formatTweet(object);
     strippedObject = stripPunctuationOf(formattedObject);
-    formattedObject.sentiment = analyseSentiment(strippedObject);
+    sentiment = analyseSentiment(strippedObject);
     formattedObject.colour = pickColour(formattedObject.sentiment);
     socketObject = stripForSocket(formattedObject);
+    console.log(socketObject)
     socket.emit('object', socketObject);
   });
 });
