@@ -3,27 +3,31 @@ sentimentLookup = require('../../src/sentiments/sentimentLookup.js').sentimentLo
 
 describe("analyseSentiment", function() {
 
-	it("should return 1 when text includes 'accepting'", function() {
+  it("doesn't process text with no specified language", function() {
+    expect(analyseSentiment(mockNolang)).toEqual(0);
+      });
+
+	it("returns 1 when text includes 'accepting'", function() {
 		expect(analyseSentiment(mockAccepting)).toEqual(1);
 	});
 
-	it("should return 3 when text includes 'happy'", function() {
+	it("returns 3 when text includes 'happy'", function() {
 		expect(analyseSentiment(mockHappy)).toEqual(3);
 	})
 
-	it("should return -2 when text includes 'sad'", function() {
+	it("returns -2 when text includes 'sad'", function() {
 		expect(analyseSentiment(mockSad)).toEqual(-2);
 	})
 
-	it("should return 0 if text includes 'torture', 'happy', and 'accepting'", function() {
+	it("returns 0 if text includes 'torture', 'happy', and 'accepting'", function() {
 		expect(analyseSentiment(mockWeird)).toEqual(0)
 	})
 
-	it("can analyse a Spanish tweet", function() {
+	it("analyses a Spanish tweet", function() {
 		expect(analyseSentiment(mockSpanish)).toEqual(-3);
 	})
 
-	it("can analyse a Turkish tweet", function() {
+	it("analyses a Turkish tweet", function() {
 		expect(analyseSentiment(mockTurkish)).toEqual(-3);
 	})
 

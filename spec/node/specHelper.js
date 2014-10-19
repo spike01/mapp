@@ -78,6 +78,10 @@ exports.mockTurkish = {
   lang: 'tr'
 }
 
+exports.mockNolang = {
+  words: ["No", "language", "here"]
+}
+
 exports.unformattedTweet = { created_at: 'Thu Oct 16 10:50:02 +0000 2014',
   id: 522700992320929800,
   id_str: '522700992320929792',
