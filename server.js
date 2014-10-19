@@ -6,7 +6,7 @@ var analyseSentiment = require('./src/sentimentAnalysis.js').analyseSentiment;
 var pickColour = require('./src/colourPicker.js').pickColour;
 var globalEmitter = require('./src/globalEmitter.js');
 var http = require('http').Server(server);
-var io = require('socket.io')(http);
+var io = require('socket.io').listen(http);
 var stripForSocket = require('./src/socketStripper.js').stripForSocket;
 
 var tweetStream = require('./src/twit.js');
@@ -19,10 +19,11 @@ server.get('/', function(request, response){
 });
 
 server.get('/helloworld', function(request, response){
-  response.render('index');
+  response.render('index2');
 });
 
 io.on('connection', function(socket) { 
+  console.log("socket.io server created")
   tweetStream.openStream();
   globalEmitter.on('tweet', function(object) {
   	var formattedObject, strippedObject, sentiment, socketObject;
@@ -40,6 +41,8 @@ io.on('connection', function(socket) {
   })
 });
 
+port = process.env.PORT || 3000;
+
 http.listen(process.env.PORT || 3000, function(){
-  console.log("Listening on port 3000");
+  console.log("Listening on port " + port);
 });
