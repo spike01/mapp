@@ -5,7 +5,19 @@
 	<title>Mapp</title>
 </head>
 <body>
-	mapp
+  hello
 	<div id="container"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var socket = io.connect('http://localhost');
+
+      socket.on('object', function(data){
+        alert('hello')
+      })
+    })
+  </script>
 </body>
 </html>
