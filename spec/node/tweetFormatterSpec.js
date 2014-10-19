@@ -1,6 +1,6 @@
 formatTweet = require('../../src/tweetFormatter.js').formatTweet
 
-describe("Formatter", function() {
+describe("tweetFormatter", function() {
 
   it("outputs the text value of a tweet", function() {
     expect(formatTweet(unformattedTweet).text).toEqual(unformattedTweet.text);

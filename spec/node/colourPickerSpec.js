@@ -1,6 +1,6 @@
 pickColour = require('../../src/colourPicker.js').pickColour
 
-describe("Colour setter", function() {
+describe("pickColour", function() {
 
   it("returns 'yellow' when given a positive value", function() {
     expect(pickColour(4)).toEqual('yellow')
