@@ -26,7 +26,24 @@ $(document).ready(function(){
       .attr("width", width)
       .attr("height", height)
       .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
-      .node().getContext("2d");
+      .node().getContext("2d")
+
+
+
+    var mouseCanvas = document.getElementById('map');
+
+    function getMousePos(canvas, evt) {
+      var rect = mouseCanvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    }
+
+    mouseCanvas.addEventListener('mousemove', function(evt) {
+      var mousePos = getMousePos(mouseCanvas, evt);
+      console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+    });
 
     var map = document.getElementById("map")
 
@@ -90,5 +107,7 @@ $(document).ready(function(){
   $('#stopConnection').on('click', function(){
     stopped = true;
   })
+
+
   
 })
