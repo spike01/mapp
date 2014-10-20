@@ -28,11 +28,10 @@ button {
   font-family: Helvetica Neue;
 }
 
-#reset {
+#startConnection {
   right: 40%;
-  font-size: 2em;
-  padding: 4px 7px 6px 6px;
-  line-height: 0.5em;
+  font-size: 0.8em;
+  padding: 5px 9px 5px 10px;
 }
 
 #stopConnection {
@@ -41,10 +40,11 @@ button {
   padding: 7px 9px 7px 5px;
 }
 
-#startConnection {
+#reset {
   right: 33%;
-  font-size: 0.8em;
-  padding: 5px 7px 5px 9px;
+  font-size: 2em;
+  padding: 4px 7px 6px 5px;
+  line-height: 0.5em;
 }
 
 canvas {
