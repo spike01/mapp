@@ -24,13 +24,15 @@ io.on('connection', function(socket) {
   if (connections === 0 ) { tweetStream.openStream(); }
     connections += 1;
     console.log('User connected.');
-  globalEmitter.on('tweet', function(object) {
+    globalEmitter.on('tweet', function(object) {
   	var formattedObject, strippedObject, sentiment, socketObject;
     formattedObject = formatTweet(object);
     strippedObject = stripPunctuationOf(formattedObject);
     sentiment = analyseSentiment(strippedObject);
-    formattedObject.colour = pickColour(sentiment);
+    formattedObject.colour = pickColour(sentiment.averageSentiment);
     socketObject = stripForSocket(formattedObject);
+    socketObject.moodWords = sentiment.moodWords;
+    console.log(socketObject);
     socket.emit('object', socketObject);
   });
 

@@ -33,9 +33,10 @@ $(document).ready(function(){
     map.setAttribute("width", width);
     map.setAttribute("height", height);
 
-    $('#tweetCount').css('top', height + "px")
-    $('#reset').css('top', height + "px")
-    $('#stopConnection').css('top', height + "px")
+    $('#tweetCount').css('top', height-100 + "px")
+    $('#reset').css('top', height-97 + "px")
+    $('#stopConnection').css('top', height-97 + "px")
+    $('#startConnection').css('top', height-97 + "px")
 
     zoom()
   }
@@ -68,7 +69,7 @@ $(document).ready(function(){
     if(stopped === false) {
       addData(data);
       tweetNumber += 1;
-      $('#tweetNumber').text(tweetNumber);
+      $('#tweetNumber').text(tweetNumber + ' ');
       canvas.beginPath();
       cx = x((data.coords[1]*ratio));
       cy = y((data.coords[0])*ratio);
@@ -81,6 +82,7 @@ $(document).ready(function(){
 
   $('#reset').on('click', function(){
     tweetNumber = 0;
+    $('#tweetNumber').text(tweetNumber + ' ');
     canvas.clearRect(0, 0, width, height);
     dataStore = [];
   })
@@ -89,6 +91,10 @@ $(document).ready(function(){
 
   $('#stopConnection').on('click', function(){
     stopped = true;
+  })
+
+  $('#startConnection').on('click', function(){
+    stopped = false;
   })
   
 })
