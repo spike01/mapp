@@ -25,6 +25,7 @@ io.on('connection', function(socket) {
     connections += 1;
     console.log('User connected.');
   globalEmitter.on('tweet', function(object) {
+    console.log(object);
   	var formattedObject, strippedObject, sentiment, socketObject;
     formattedObject = formatTweet(object);
     strippedObject = stripPunctuationOf(formattedObject);
