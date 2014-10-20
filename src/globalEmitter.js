@@ -8,4 +8,3 @@ exports.emit = function(str, callback) {
 exports.on = function(str, callback) {
     eventEmitter.on(str, callback);
 }
-
