@@ -22,7 +22,7 @@ var connections = 0;
 io.on('connection', function(socket) { 
   console.log(connections);
   console.log("socket.io server created");
-  if (connections == 0 ) { tweetStream.openStream(); }
+  if (connections === 0 ) { tweetStream.openStream(); }
     connections += 1;
   globalEmitter.on('tweet', function(object) {
   	var formattedObject, strippedObject, sentiment, socketObject;

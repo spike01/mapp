@@ -1,10 +1,14 @@
 $(document).ready(function(){
+
   var socket = io.connect('/');
 
+  var dataStore = [];
 
-  var dataStore = []
-  var width = 3600,
-  height = 1800;
+  var viewportWidth = window.innerWidth;
+  var viewportHeight = window.innerHeight;
+  var width = viewportWidth;
+  var height = viewportWidth / 2;
+  var ratio = viewportWidth / 360;
 
   var x = d3.scale.linear()
     .domain([0, width])
@@ -17,9 +21,37 @@ $(document).ready(function(){
   var canvas = d3.select("#container").append("canvas")
     .attr("width", width)
     .attr("height", height)
+    .attr("id", 'map')
     .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
     .node().getContext("2d");
 
+  window.onload = window.onresize = function() {
+    viewportWidth = window.innerWidth;
+    viewportHeight = window.innerHeight;
+    width = viewportWidth;
+    height = viewportWidth / 2;
+    ratio = viewportWidth / 360;
+
+    x = d3.scale.linear()
+      .domain([0, width])
+      .range([0, width]);
+
+    y = d3.scale.linear()
+      .domain([0, height])
+      .range([height, 0]);
+
+    var map = document.getElementById('map')
+
+    map.setAttribute("width", width);
+    map.setAttribute("height", height);
+    map.style.position = "fixed";
+    map.style.top = (viewportHeight - height) / 2;
+    map.style.left = (viewportWidth - width) / 2;
+
+    canvas.clearRect(0,0,width, height)
+    draw()
+
+  }
 
   function zoom() {
     canvas.clearRect(0, 0, width, height);
@@ -31,8 +63,8 @@ $(document).ready(function(){
     while (++i < n) {
       canvas.beginPath();
       d = dataStore[i];
-      cx = x(d[0]);
-      cy = y(d[1]);
+      cx = x(d[0]*ratio);
+      cy = y(d[1]*ratio);
       canvas.fillStyle = d[2] 
       canvas.moveTo(cx, cy)
       canvas.arc(cx, cy, 2.5, 0, 2 * Math.PI);
@@ -41,22 +73,20 @@ $(document).ready(function(){
     }
   }
 
-
   function addData(data) {
-    dataStore[dataStore.length] = [(data.coords[1])*10, (data.coords[0])*10, data.colour] 
+    dataStore[dataStore.length] = [(data.coords[1]), (data.coords[0]), data.colour] 
   } ;
 
   socket.on('object', function(data){
+    addData(data);
 
-  addData(data);
-
-  canvas.beginPath();
-  cx = x((data.coords[1]*10));
-  cy = y((data.coords[0])*10);
-  canvas.arc(cx, cy, 2, 0, 2 * Math.PI, false);
-  canvas.fillStyle = data.colour;
-  canvas.fill();
-  canvas.closePath();
-
+    canvas.beginPath();
+    cx = x((data.coords[1]*ratio));
+    cy = y((data.coords[0])*ratio);
+    canvas.arc(cx, cy, 2, 0, 2 * Math.PI, false);
+    canvas.fillStyle = data.colour;
+    canvas.fill();
+    canvas.closePath();
   })
+  
 })
