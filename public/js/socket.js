@@ -4,12 +4,6 @@ $(document).ready(function(){
 
   var dataStore = [];
   var canvas, x, y;
-  var viewportWidth = window.innerWidth;
-  var viewportHeight = window.innerHeight;
-  var width = viewportWidth;
-  var height = viewportWidth / 2;
-  var ratio = viewportWidth / 360;
-  var radius = viewportWidth / 700;
 
   window.onload = window.onresize = function() {
 
@@ -18,7 +12,7 @@ $(document).ready(function(){
     width = viewportWidth;
     height = viewportWidth / 2;
     ratio = viewportWidth / 360;
-    radius = viewportWidth / 700;
+    radius = viewportWidth / 1000;
 
     x = d3.scale.linear()
       .domain([0, width])
@@ -31,11 +25,11 @@ $(document).ready(function(){
     canvas = d3.select("canvas")
       .attr("width", width)
       .attr("height", height)
-      .attr("id", 'map')
+      .attr("id", "map")
       .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
       .node().getContext("2d");
 
-    var map = document.getElementById('map')
+    var map = document.getElementById("map")
 
     map.setAttribute("width", width);
     map.setAttribute("height", height);
