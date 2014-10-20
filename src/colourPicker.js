@@ -13,5 +13,5 @@ function _componentToHex(c) {
 }
 
 function _rgbToHex(r, g, b) {
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    return "#" + _componentToHex(r) + _componentToHex(g) + _componentToHex(b);
 }

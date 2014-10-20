@@ -39,6 +39,8 @@ $(document).ready(function(){
     map.style.position = "fixed";
     map.style.top = (viewportHeight - height) / 2;
     map.style.left = (viewportWidth - width) / 2;
+    map.call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", redraw))
+    map.node().getContext("2d");
 
     redraw()
   }
