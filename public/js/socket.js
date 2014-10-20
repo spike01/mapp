@@ -1,9 +1,7 @@
 $(document).ready(function(){
 
   var socket = io.connect('/');
-
   var dataStore = [];
-
   var viewportWidth = window.innerWidth;
   var viewportHeight = window.innerHeight;
   var width = viewportWidth;
@@ -21,8 +19,8 @@ $(document).ready(function(){
   var canvas = d3.select("#container").append("canvas")
     .attr("width", width)
     .attr("height", height)
-    .attr("id", 'map')
-    .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
+    .attr("id", "map")
+    .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", redraw))
     .node().getContext("2d");
 
   window.onload = window.onresize = function() {
@@ -48,12 +46,10 @@ $(document).ready(function(){
     map.style.top = (viewportHeight - height) / 2;
     map.style.left = (viewportWidth - width) / 2;
 
-    canvas.clearRect(0,0,width, height)
-    draw()
-
+    redraw()
   }
 
-  function zoom() {
+  function redraw() {
     canvas.clearRect(0, 0, width, height);
     draw();
   }
