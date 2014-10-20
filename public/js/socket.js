@@ -2,20 +2,25 @@ $(document).ready(function(){
 
   var socket = io.connect('/');
   var dataStore = [];
-  var viewportWidth = window.innerWidth;
-  var viewportHeight = window.innerHeight;
-  var width = viewportWidth;
-  var height = viewportWidth / 2;
-  var ratio = viewportWidth / 360;
-  var radius = viewportWidth / 640;
+  var viewportWidth, viewportHeight, width, height, ratio, radius, x, y
 
-  var x = d3.scale.linear()
-    .domain([0, width])
-    .range([0, width]);
+  function setVars()  {
+    viewportWidth = window.innerWidth;
+    viewportHeight = window.innerHeight;
+    width = viewportWidth;
+    height = viewportWidth / 2;
+    ratio = viewportWidth / 360;
+    radius = viewportWidth / 700;
+    x = d3.scale.linear()
+      .domain([0, width])
+      .range([0, width]);
 
-  var y = d3.scale.linear()
-    .domain([0, height])
-    .range([height, 0]);
+    y = d3.scale.linear()
+      .domain([0, height])
+      .range([height, 0]); 
+  }
+
+  setVars()
 
   var canvas = d3.select("#container").append("canvas")
     .attr("width", width)
@@ -25,20 +30,7 @@ $(document).ready(function(){
     .node().getContext("2d");
 
   window.onload = window.onresize = function() {
-    viewportWidth = window.innerWidth;
-    viewportHeight = window.innerHeight;
-    width = viewportWidth;
-    height = viewportWidth / 2;
-    ratio = viewportWidth / 360;
-    radius = viewportWidth / 640;
-
-    x = d3.scale.linear()
-      .domain([0, width])
-      .range([0, width]);
-
-    y = d3.scale.linear()
-      .domain([0, height])
-      .range([height, 0]);
+    setVars();
 
     var map = document.getElementById('map')
 
