@@ -28,7 +28,7 @@ describe("analyseSentiment", function() {
 	})
 
 	it("analyses a Turkish tweet", function() {
-		expect(analyseSentiment(mockTurkish)).toEqual(-3);
+		expect(analyseSentiment(mockTurkish)).toEqual(-1.5);
 	})
 
 });

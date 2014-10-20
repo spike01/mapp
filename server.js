@@ -20,10 +20,10 @@ server.get('/', function(request, response){
 var connections = 0;
 
 io.on('connection', function(socket) { 
-  console.log(connections);
   console.log("socket.io server created");
   if (connections === 0 ) { tweetStream.openStream(); }
     connections += 1;
+    console.log('User connected.');
   globalEmitter.on('tweet', function(object) {
   	var formattedObject, strippedObject, sentiment, socketObject;
     formattedObject = formatTweet(object);
@@ -36,6 +36,7 @@ io.on('connection', function(socket) {
 
   socket.on('disconnect', function() {
     connections -= 1;
+    console.log('User disconnected.');
     if (connections === 0) { tweetStream.closeStream(); }
   })
 });
