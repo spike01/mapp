@@ -9,6 +9,7 @@ $(document).ready(function(){
   var width = viewportWidth;
   var height = viewportWidth / 2;
   var ratio = viewportWidth / 360;
+  var radius = viewportWidth / 700;
 
   window.onload = window.onresize = function() {
 
@@ -17,6 +18,7 @@ $(document).ready(function(){
     width = viewportWidth;
     height = viewportWidth / 2;
     ratio = viewportWidth / 360;
+    radius = viewportWidth / 700;
 
     x = d3.scale.linear()
       .domain([0, width])
@@ -58,7 +60,7 @@ $(document).ready(function(){
       cy = y(d[1]*ratio);
       canvas.fillStyle = d[2] 
       canvas.moveTo(cx, cy)
-      canvas.arc(cx, cy, 2.5, 0, 2 * Math.PI);
+      canvas.arc(cx, cy, radius, 0, 2 * Math.PI);
       canvas.fill()
       canvas.closePath();
     }
@@ -74,7 +76,7 @@ $(document).ready(function(){
     canvas.beginPath();
     cx = x((data.coords[1]*ratio));
     cy = y((data.coords[0])*ratio);
-    canvas.arc(cx, cy, 2, 0, 2 * Math.PI, false);
+    canvas.arc(cx, cy, radius, 0, 2 * Math.PI, false);
     canvas.fillStyle = data.colour;
     canvas.fill();
     canvas.closePath();
