@@ -20,7 +20,6 @@ body {
 
 button {
   position: fixed;
-  padding: 7px 14px;
   border: solid 1px #FF8000;
   background-color: rgba(0,0,0,0);
   color: #FF8000;
@@ -29,16 +28,37 @@ button {
   font-family: Helvetica Neue;
 }
 
-#reset {
+#startConnection {
   right: 40%;
+  font-size: 0.8em;
+  padding: 5px 9px 5px 10px;
 }
 
 #stopConnection {
-  right: 35%;
+  right: 36.5%;
+  font-size: 0.7em;
+  padding: 7px 9px 7px 5px;
+}
+
+#reset {
+  right: 33%;
+  font-size: 2em;
+  padding: 4px 7px 6px 5px;
+  line-height: 0.5em;
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+div.timer {
+  width:190px;
+  height:50px;
+  line-height:50px;
+  font-size:36px;
+  font-family:"Courier New", Courier, monospace;
+  text-align:center;
+  margin:5px;
 }
