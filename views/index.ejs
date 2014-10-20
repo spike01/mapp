@@ -4,13 +4,33 @@
 	<meta charset="UTF-8">
 	<title>Mapp</title>
 	<style type="text/css">
-		canvas {
+		body {
 			background-color: #031D34;
 		}
+
+    h1 {
+      color: #FF8000;
+      font-family: Helvetica Neue;
+      font-size: 2em;
+      margin: 0;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      right: 0;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
 	</style>
 </head>
 <body>
-	<div id="container"><canvas></canvas></div>
+	
+  <canvas id="map"></canvas>
+  <h1 id="tweetCount"></h1>
+  
   <script src="/socket.io/socket.io.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="js/jquery-2.1.1.min.js"></script>

@@ -3,7 +3,7 @@ $(document).ready(function(){
   var socket = io.connect('/');
 
   var dataStore = [];
-  var canvas, x, y;
+  var canvas, x, y, tweetCounter = 0;
 
   window.onload = window.onresize = function() {
 
@@ -22,10 +22,9 @@ $(document).ready(function(){
       .domain([0, height])
       .range([height, 0]);
 
-    canvas = d3.select("canvas")
+    canvas = d3.select("#map")
       .attr("width", width)
       .attr("height", height)
-      .attr("id", "map")
       .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
       .node().getContext("2d");
 
@@ -33,9 +32,8 @@ $(document).ready(function(){
 
     map.setAttribute("width", width);
     map.setAttribute("height", height);
-    map.style.position = "fixed";
-    map.style.top = (viewportHeight - height) / 2;
-    map.style.left = (viewportWidth - width) / 2;
+
+    $('#tweetCount').css('top', height + "px")
 
     zoom()
   }
@@ -66,7 +64,8 @@ $(document).ready(function(){
 
   socket.on('object', function(data){
     addData(data);
-
+    tweetCounter += 1;
+    $('#tweetCount').text(tweetCounter);
     canvas.beginPath();
     cx = x((data.coords[1]*ratio));
     cy = y((data.coords[0])*ratio);
