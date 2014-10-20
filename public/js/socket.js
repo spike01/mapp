@@ -40,10 +40,20 @@ $(document).ready(function(){
       };
     }
 
+    var mouseCoords = [];
+
     mouseCanvas.addEventListener('mousemove', function(evt) {
       var mousePos = getMousePos(mouseCanvas, evt);
-      console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+      mouseCoords = [Math.round(mousePos.x/10), Math.round(mousePos.y/10)]
+      dataStore.forEach(function(coords) {
+        if(Math.round(coords[0]) === mouseCoords[0]) {
+          if(Math.round(coords[1]) === mouseCoords[1]) {
+            console.log('gotcha');
+          }
+        }
+      });
     });
+      
 
     var map = document.getElementById("map")
 
@@ -55,6 +65,7 @@ $(document).ready(function(){
     $('#stopConnection').css('top', height + "px")
 
     zoom()
+  
   }
 
   function zoom() {
