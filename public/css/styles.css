@@ -1,0 +1,44 @@
+body {
+  background-color: #031D34;
+  font-family: Helvetica Neue;
+  color: #FF8000;
+}
+
+#tweetNumber {
+  font-size: 2em;
+  margin: 0;
+  display: inline;
+}
+
+#tweetCount {
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: block;
+}
+
+button {
+  position: fixed;
+  padding: 7px 14px;
+  border: solid 1px #FF8000;
+  background-color: rgba(0,0,0,0);
+  color: #FF8000;
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: Helvetica Neue;
+}
+
+#reset {
+  right: 40%;
+}
+
+#stopConnection {
+  right: 35%;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}

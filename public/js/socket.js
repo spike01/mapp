@@ -3,13 +3,7 @@ $(document).ready(function(){
   var socket = io.connect('/');
 
   var dataStore = [];
-  var canvas, x, y;
-  var viewportWidth = window.innerWidth;
-  var viewportHeight = window.innerHeight;
-  var width = viewportWidth;
-  var height = viewportWidth / 2;
-  var ratio = viewportWidth / 360;
-  var radius = viewportWidth / 700;
+  var canvas, x, y, tweetNumber = 0;
 
   window.onload = window.onresize = function() {
 
@@ -18,7 +12,7 @@ $(document).ready(function(){
     width = viewportWidth;
     height = viewportWidth / 2;
     ratio = viewportWidth / 360;
-    radius = viewportWidth / 700;
+    radius = viewportWidth / 1000;
 
     x = d3.scale.linear()
       .domain([0, width])
@@ -28,20 +22,20 @@ $(document).ready(function(){
       .domain([0, height])
       .range([height, 0]);
 
-    canvas = d3.select("canvas")
+    canvas = d3.select("#map")
       .attr("width", width)
       .attr("height", height)
-      .attr("id", 'map')
       .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
       .node().getContext("2d");
 
-    var map = document.getElementById('map')
+    var map = document.getElementById("map")
 
     map.setAttribute("width", width);
     map.setAttribute("height", height);
-    map.style.position = "fixed";
-    map.style.top = (viewportHeight - height) / 2;
-    map.style.left = (viewportWidth - width) / 2;
+
+    $('#tweetCount').css('top', height + "px")
+    $('#reset').css('top', height + "px")
+    $('#stopConnection').css('top', height + "px")
 
     zoom()
   }
@@ -71,15 +65,30 @@ $(document).ready(function(){
   } ;
 
   socket.on('object', function(data){
-    addData(data);
+    if(stopped === false) {
+      addData(data);
+      tweetNumber += 1;
+      $('#tweetNumber').text(tweetNumber);
+      canvas.beginPath();
+      cx = x((data.coords[1]*ratio));
+      cy = y((data.coords[0])*ratio);
+      canvas.arc(cx, cy, radius, 0, 2 * Math.PI, false);
+      canvas.fillStyle = data.colour;
+      canvas.fill();
+      canvas.closePath();
+    }
+  })
 
-    canvas.beginPath();
-    cx = x((data.coords[1]*ratio));
-    cy = y((data.coords[0])*ratio);
-    canvas.arc(cx, cy, radius, 0, 2 * Math.PI, false);
-    canvas.fillStyle = data.colour;
-    canvas.fill();
-    canvas.closePath();
+  $('#reset').on('click', function(){
+    tweetNumber = 0;
+    canvas.clearRect(0, 0, width, height);
+    dataStore = [];
+  })
+
+  var stopped = false;
+
+  $('#stopConnection').on('click', function(){
+    stopped = true;
   })
   
 })
