@@ -63,3 +63,13 @@ canvas {
   top: 0;
   left: 0;
 }
+
+div.timer {
+  width:190px;
+  height:50px;
+  line-height:50px;
+  font-size:36px;
+  font-family:"Courier New", Courier, monospace;
+  text-align:center;
+  margin:5px;
+}
