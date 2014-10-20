@@ -36,6 +36,7 @@ $(document).ready(function(){
     $('#tweetCount').css('top', height + "px")
     $('#reset').css('top', height + "px")
     $('#stopConnection').css('top', height + "px")
+    $('#startConnection').css('top', height + "px")
 
     zoom()
   }
@@ -81,6 +82,7 @@ $(document).ready(function(){
 
   $('#reset').on('click', function(){
     tweetNumber = 0;
+    $('#tweetNumber').text(tweetNumber);
     canvas.clearRect(0, 0, width, height);
     dataStore = [];
   })
@@ -89,6 +91,10 @@ $(document).ready(function(){
 
   $('#stopConnection').on('click', function(){
     stopped = true;
+  })
+
+  $('#startConnection').on('click', function(){
+    stopped = false;
   })
   
 })
