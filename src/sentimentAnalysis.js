@@ -7,7 +7,7 @@ exports.analyseSentiment = function (object) {
   sentimentAccumulation = 0;
   moodWords = {};
   _wordLookup(object);
-  return  { sentiment: sentiment, moodWords: moodWords }
+  return  { averageSentiment: sentiment, moodWords: moodWords }
 }
 
 //private

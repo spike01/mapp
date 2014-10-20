@@ -8,7 +8,7 @@ describe("analyseSentiment", function() {
       });
 
 	it("returns an array containing arrays containing the text and its mood value when text includes 'accepting'", function() {
-		expect(analyseSentiment(mockAccepting)).toEqual({ sentiment : 1, moodWords : {  accepting: 1} });
+		expect(analyseSentiment(mockAccepting)).toEqual({ sentiment : 1, moodWords : {  accepting: 1 } });
 	});
 
 	it("returns 3 when text includes 'happy'", function() {
