@@ -8,7 +8,6 @@ var globalEmitter = require('./src/globalEmitter.js');
 var http = require('http').Server(server);
 var io = require('socket.io').listen(http);
 var stripForSocket = require('./src/socketStripper.js').stripForSocket;
-
 var tweetStream = require('./src/twit.js');
 
 server.set('view engine', 'ejs');
@@ -18,13 +17,13 @@ server.get('/', function(request, response){
   response.render('index');
 });
 
-server.get('/helloworld', function(request, response){
-  response.render('index2');
-});
+var connections = 0;
 
 io.on('connection', function(socket) { 
-  console.log("socket.io server created")
-  tweetStream.openStream();
+  console.log(connections);
+  console.log("socket.io server created");
+  if (connections == 0 ) { tweetStream.openStream(); }
+    connections += 1;
   globalEmitter.on('tweet', function(object) {
   	var formattedObject, strippedObject, sentiment, socketObject;
     formattedObject = formatTweet(object);
@@ -32,12 +31,12 @@ io.on('connection', function(socket) {
     sentiment = analyseSentiment(strippedObject);
     formattedObject.colour = pickColour(sentiment);
     socketObject = stripForSocket(formattedObject);
-    console.log(socketObject)
     socket.emit('object', socketObject);
   });
 
   socket.on('disconnect', function() {
-    tweetStream.closeStream();
+    connections -= 1;
+    if (connections === 0) { tweetStream.closeStream(); }
   })
 });
 
