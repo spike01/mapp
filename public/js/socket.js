@@ -34,6 +34,7 @@ $(document).ready(function(){
     map.setAttribute("height", height);
 
     $('#tweetCount').css('top', height + "px")
+    $('#reset').css('top', height + "px")
 
     zoom()
   }
@@ -73,6 +74,12 @@ $(document).ready(function(){
     canvas.fillStyle = data.colour;
     canvas.fill();
     canvas.closePath();
+  })
+
+  $('#reset').on('click', function(){
+    tweetNumber = 0;
+    canvas.clearRect(0, 0, width, height);
+    dataStore = [];
   })
   
 })
