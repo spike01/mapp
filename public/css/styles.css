@@ -1,16 +1,21 @@
 body {
   background-color: #031D34;
+  font-family: Helvetica Neue;
+  color: #FF8000;
 }
 
-h1 {
-  color: #FF8000;
-  font-family: Helvetica Neue;
+#tweetNumber {
   font-size: 2em;
   margin: 0;
-  text-align: center;
+  display: inline;
+}
+
+#tweetCount {
   position: fixed;
   left: 0;
   right: 0;
+  text-align: center;
+  display: block;
 }
 
 canvas {

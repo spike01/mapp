@@ -3,7 +3,7 @@ $(document).ready(function(){
   var socket = io.connect('/');
 
   var dataStore = [];
-  var canvas, x, y, tweetCounter = 0;
+  var canvas, x, y, tweetNumber = 0;
 
   window.onload = window.onresize = function() {
 
@@ -64,8 +64,8 @@ $(document).ready(function(){
 
   socket.on('object', function(data){
     addData(data);
-    tweetCounter += 1;
-    $('#tweetCount').text(tweetCounter);
+    tweetNumber += 1;
+    $('#tweetNumber').text(tweetNumber);
     canvas.beginPath();
     cx = x((data.coords[1]*ratio));
     cy = y((data.coords[0])*ratio);
