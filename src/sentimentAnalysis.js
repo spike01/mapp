@@ -1,12 +1,11 @@
 var sentimentLookup = require('./sentiments/sentimentLookup.js').sentimentLookup;
-var sentiment;
 
 
 exports.analyseSentiment = function (object) {
-	sentiment = 0; 
-  count = 0; 
+	sentiment = 0, 
+  count = 0, 
   sentimentAccumulation = 0;
-  	object.words.forEach(function(word) {
+  object.words.forEach(function(word) {
     if(sentimentLookup[object.lang]) {
     	if(sentimentLookup[object.lang][word]) {
       		_updateSentiment(object.lang, word);
