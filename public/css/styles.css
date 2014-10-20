@@ -18,16 +18,23 @@ body {
   display: block;
 }
 
-#reset {
+button {
   position: fixed;
   padding: 7px 14px;
-  right: 40%;
   border: solid 1px #FF8000;
   background-color: rgba(0,0,0,0);
   color: #FF8000;
   border-radius: 4px;
   font-size: 1em;
   font-family: Helvetica Neue;
+}
+
+#reset {
+  right: 40%;
+}
+
+#stopConnection {
+  right: 35%;
 }
 
 canvas {

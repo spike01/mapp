@@ -35,6 +35,7 @@ $(document).ready(function(){
 
     $('#tweetCount').css('top', height + "px")
     $('#reset').css('top', height + "px")
+    $('#stopConnection').css('top', height + "px")
 
     zoom()
   }
@@ -64,22 +65,30 @@ $(document).ready(function(){
   } ;
 
   socket.on('object', function(data){
-    addData(data);
-    tweetNumber += 1;
-    $('#tweetNumber').text(tweetNumber);
-    canvas.beginPath();
-    cx = x((data.coords[1]*ratio));
-    cy = y((data.coords[0])*ratio);
-    canvas.arc(cx, cy, radius, 0, 2 * Math.PI, false);
-    canvas.fillStyle = data.colour;
-    canvas.fill();
-    canvas.closePath();
+    if(stopped === false) {
+      addData(data);
+      tweetNumber += 1;
+      $('#tweetNumber').text(tweetNumber);
+      canvas.beginPath();
+      cx = x((data.coords[1]*ratio));
+      cy = y((data.coords[0])*ratio);
+      canvas.arc(cx, cy, radius, 0, 2 * Math.PI, false);
+      canvas.fillStyle = data.colour;
+      canvas.fill();
+      canvas.closePath();
+    }
   })
 
   $('#reset').on('click', function(){
     tweetNumber = 0;
     canvas.clearRect(0, 0, width, height);
     dataStore = [];
+  })
+
+  var stopped = false;
+
+  $('#stopConnection').on('click', function(){
+    stopped = true;
   })
   
 })
