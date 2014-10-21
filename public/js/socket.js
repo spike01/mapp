@@ -93,9 +93,12 @@ $(document).ready(function(){
     dataStore[dataStore.length] = [(data.coords[1]), (data.coords[0]), data.colour] 
   } ;
 
+
+
   socket.on('object', function(data){
     if(stopped === false) {
       addData(data);
+      wordStore(data);
       tweetNumber += 1;
       $('#tweetNumber').text(tweetNumber + ' ');
       canvas.beginPath();
