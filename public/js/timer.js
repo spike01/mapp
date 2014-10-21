@@ -43,9 +43,9 @@ function _timer(callback) {
         minute = (minute < 10) ? '0'+minute : minute;
         hour = (hour < 10) ? '0'+hour : hour;
         
-        $('div.timer span.second').html(second);
-        $('div.timer span.minute').html(minute);
-        $('div.timer span.hour').html(hour);
+        //$('div.timer span.second').html(second);
+        //$('div.timer span.minute').html(minute);
+        //$('div.timer span.hour').html(hour);
     }
 }
 
