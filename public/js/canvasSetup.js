@@ -1,4 +1,4 @@
-var canvas, x, y, tweetNumber = 0, width, height, ratio, radius;
+var canvas, x, y, width, height, ratio, radius;
 
 window.onload = window.onresize = function() {
 
@@ -21,16 +21,16 @@ window.onload = window.onresize = function() {
     .attr("width", width)
     .attr("height", height)
     .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
-    .node().getContext("2d")
+    .node().getContext("2d");
 
-    $('#tweetCount').css('top', height-100 + "px")
-    $('#reset').css('top', height-97 + "px")
-    $('#stopConnection').css('top', height-97 + "px")
-    $('#startConnection').css('top', height-97 + "px")
+    $('#tweetCount').css('top', height-100 + "px");
+    $('#reset').css('top', height-97 + "px");
+    $('#stopConnection').css('top', height-97 + "px");
+    $('#startConnection').css('top', height-97 + "px");
 
-    zoom()
+    zoom();
 
-}
+};
 
 function canvasReset() {
   canvas.clearRect(0, 0, width, height);
