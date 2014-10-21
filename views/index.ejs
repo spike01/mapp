@@ -3,17 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mapp</title>
+  <link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	
-  <canvas id="map"></canvas>
-  
-  <span id="tweetCount"><h1 id="tweetNumber"></h1>tweets</span>
+  <section id="intro">
+    <p>Click the play button to start.</p>
+  </section>
 
-  <div class="button" id="startConnection"></div>
-  <div class="button" id="stopConnection"></div>
-  <div class="button" id="reset"></div>
+  <canvas id="map"></canvas>
+
+  <section id="instructions">
+    <p>Scroll to zoom. Drag to move around.</p>
+  </section>
+  
+  <span id="tweetCount"><h1 id="tweetNumber">0 </h1>tweets</span>
+
+  <button id="startConnection"></button>
+  <button id="stopConnection"></button>
+  <button id="reset"></button>
+
+  <section id="about">
+    <a href="#">About</a>
+  </section>
 
   <!--<div class="timer">-->
     <!--<span class="hour">00</span>:<span class="minute">00</span>:<span class="second">00</span>-->

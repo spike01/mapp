@@ -1,4 +1,4 @@
-var stopped = false;
+var stopped = true;
 
 $(document).ready(function(){
 
@@ -10,8 +10,8 @@ $(document).ready(function(){
   })
 
   $('#reset').on('click', function(){
-    tweetNumber = 0;
     stopped = true;
+    tweetNumber = 0;
     $('#tweetNumber').text(tweetNumber + ' ');
     canvasReset();
     dataStore = [];
@@ -23,6 +23,7 @@ $(document).ready(function(){
 
   $('#startConnection').on('click', function(){
     stopped = false;
+    $('#intro').css('opacity', '0');
   })
 
 })
