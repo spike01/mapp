@@ -1,13 +1,13 @@
-var x, y, canvas
+var canvas, x, y, tweetNumber = 0, width, height, ratio, radius;
 
 window.onload = window.onresize = function() {
 
   var viewportWidth = window.innerWidth;
   var viewportHeight = window.innerHeight;
-  var width = viewportWidth;
-  var height = viewportWidth / 2;
-  var ratio = viewportWidth / 360;
-  var radius = viewportWidth / 1000;
+  width = viewportWidth;
+  height = viewportWidth / 2;
+  ratio = viewportWidth / 360;
+  radius = viewportWidth / 1000;
 
   x = d3.scale.linear()
     .domain([0, width])
