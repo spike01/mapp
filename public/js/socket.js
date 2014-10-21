@@ -1,6 +1,9 @@
+var stopped = false;
+
 $(document).ready(function(){
 
   var socket = io.connect('/');
+
 
   var dataStore = [];
   var canvas, x, y, tweetNumber = 0;
@@ -109,16 +112,19 @@ $(document).ready(function(){
       canvas.fill();
       canvas.closePath();
     }
+
+  socket.on('object', function(data){
+    streamDraw(data);
+
   })
 
   $('#reset').on('click', function(){
     tweetNumber = 0;
+    stopped = true;
     $('#tweetNumber').text(tweetNumber + ' ');
-    canvas.clearRect(0, 0, width, height);
+    canvasReset();
     dataStore = [];
   })
-
-  var stopped = false;
 
   $('#stopConnection').on('click', function(){
     stopped = true;
@@ -127,5 +133,5 @@ $(document).ready(function(){
   $('#startConnection').on('click', function(){
     stopped = false;
   })
-  
+
 })
