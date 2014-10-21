@@ -9,18 +9,21 @@ body {
   width: 100%;
   text-align: center;
   transition: opacity 1.0s ease;
+  padding-top: 100px;
 }
 
 #instructions {
   float: left;
-  line-height : 0.5em;
+  line-height : 2.8em;
+  margin-left: 20px;
+  position: fixed;
 }
 
 #about {
-  float: right;
-  
-  /*line-height: 2.8em;*/
+  right: 0;
+  line-height: 2.8em;
   margin-right: 20px;
+  position: fixed;
 }
 
 #about a {
@@ -34,6 +37,7 @@ body {
 
 #tweetNumber {
   font-size: 2em;
+  font-weight: 600;
   margin: 0;
   display: inline;
 }
@@ -54,7 +58,6 @@ button {
   border-radius: 4px;
   font-size: 1em;
   font-family: Helvetica Neue;
-  margin-top: 6px;
 }
 
 button:focus {
@@ -67,8 +70,8 @@ button:focus {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
 }
 
 #stopConnection {
@@ -77,8 +80,8 @@ button:focus {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
 }
 
 #reset {
@@ -87,8 +90,8 @@ button:focus {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
 }
 
 canvas {
