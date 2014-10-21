@@ -22,7 +22,7 @@ window.onload = window.onresize = function() {
   canvas = d3.select("#map")
     .attr("width", width)
     .attr("height", height)
-    .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
+    .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 400]).on("zoom", zoom))
     .node().getContext("2d");
 
     zoom();
