@@ -25,7 +25,7 @@ io.on('connection', function(socket) {
     connections += 1;
     console.log('User connected.');
     globalEmitter.on('tweet', function(object) {
-  	var formattedObject, strippedObject, sentiment, socketObject;
+    var formattedObject, strippedObject, sentiment, socketObject;
     formattedObject = formatTweet(object);
     strippedObject = stripPunctuationOf(formattedObject);
     sentiment = analyseSentiment(strippedObject);
@@ -40,10 +40,10 @@ io.on('connection', function(socket) {
     connections -= 1;
     console.log('User disconnected.');
     if (connections === 0) { tweetStream.closeStream(); }
-  })
+  });
 });
 
-port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 http.listen(process.env.PORT || 3000, function(){
   console.log("Listening on port " + port);

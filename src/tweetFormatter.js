@@ -3,4 +3,4 @@ exports.formatTweet = function(tweet) {
             coords: [ tweet.geo.coordinates[0]+90, tweet.geo.coordinates[1]+180 ],
             lang: tweet.lang
           };
-}
+};

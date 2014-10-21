@@ -1,5 +1,5 @@
 var sentimentLookup = require('./sentiments/sentimentLookup.js').sentimentLookup;
-
+var sentiment, count, sentimentAccumlation, moodWords
 
 exports.analyseSentiment = function (object) {
 	sentiment = 0;
@@ -7,13 +7,13 @@ exports.analyseSentiment = function (object) {
   sentimentAccumulation = 0;
   moodWords = {};
   _wordLookup(object);
-  return  { averageSentiment: sentiment, moodWords: moodWords }
+  return  { averageSentiment: sentiment, moodWords: moodWords };
 }
 
 //private
 
 function _updateSentiment(lang, word) {
-  count += 1
+  count += 1;
   sentimentAccumulation += sentimentLookup[lang][word];
   sentiment = ( sentimentAccumulation / count );
 }
