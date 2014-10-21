@@ -122,10 +122,8 @@ section.tweetStreamDisplay {
 
 }
 
-ul {
-  left:10px;
-}
-
-li {
-    list-style-type: none;
+ul li {
+  list-style-type: none;
+  opacity: 1.0;
+  transition: opacity 1.0s ease-in;
 }
