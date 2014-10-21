@@ -9,6 +9,8 @@ window.onload = window.onresize = function() {
   ratio = viewportWidth / 360;
   radius = viewportWidth / 1000;
 
+  $('#intro').css('height', height-100 + 'px');
+
   x = d3.scale.linear()
     .domain([0, width])
     .range([0, width]);
@@ -22,11 +24,6 @@ window.onload = window.onresize = function() {
     .attr("height", height)
     .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 8]).on("zoom", zoom))
     .node().getContext("2d");
-
-    $('#tweetCount').css('top', height-100 + "px");
-    $('#reset').css('top', height-97 + "px");
-    $('#stopConnection').css('top', height-97 + "px");
-    $('#startConnection').css('top', height-97 + "px");
 
     zoom();
 
