@@ -28,6 +28,10 @@ body {
   font-family: Helvetica Neue;
 }
 
+.button:focus {
+  outline: none;
+}
+
 #startConnection {
   right: 40%;
   background: url(../svg/ic_play_arrow_48px.svg);
