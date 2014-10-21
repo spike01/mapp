@@ -107,3 +107,13 @@ div.timer {
   text-align:center;
   margin:5px;
 }
+
+section.tweetStreamDisplay {
+  width: 500px;
+  height: 160px;
+  border: 3px solid;
+  overflow: hidden;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}

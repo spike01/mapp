@@ -1,14 +1,15 @@
-var wordAccumulator = {};
 var moodWords;
+var wordAccumulator = {};
 
 function wordCounter(data) {
-	moodWords = Object.keys(data.moodWords)
+	moodWords = Object.keys(data.moodWords);
+	console.log(moodWords);
 	moodWords.forEach(function(word) {
-	var wordFreq = 0;
-	if(wordAccumulator[word] !== null) { 
-		wordFreq += 1 
+	if(wordAccumulator[word] === undefined) { 
+		wordAccumulator[word] = { sent: data.moodWords[word], freq: 1 }
 	}
-	wordAccumulator[word] = { sent: data.moodWords[word], freq: wordFreq }
-
+	else {
+		wordAccumulator[word].freq += 1;
+	}
 	});
 }

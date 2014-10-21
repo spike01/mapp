@@ -33,4 +33,4 @@ function streamDraw(data) {
     canvas.fill();
     canvas.closePath();
   }
-} 
+}
