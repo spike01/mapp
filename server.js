@@ -32,7 +32,7 @@ io.on('connection', function(socket) {
     formattedObject.colour = pickColour(sentiment.averageSentiment);
     socketObject = stripForSocket(formattedObject);
     socketObject.moodWords = sentiment.moodWords;
-    console.log(socketObject);
+    //console.log(socketObject);
     socket.emit('object', socketObject);
   });
 
