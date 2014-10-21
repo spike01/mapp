@@ -8,11 +8,11 @@ describe("tweetStream", function() {
   })
 
   it("closes a stream", function() {
-    expect(twitModule.closeStream()).toBeCalled
+    expect(twitModule.closeStream()).toHaveBeenCalled
   })
 
   it("reopens a stream", function() {
-    expect(twitModule.reopenStream()).toBeCalled
+    expect(twitModule.reopenStream()).toHaveBeenCalled
   })
 
   describe("reports the current status correctly", function() {
