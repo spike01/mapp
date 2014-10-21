@@ -6,6 +6,7 @@ $(document).ready(function(){
 
   socket.on('object', function(data){
     streamDraw(data);
+    streamDisplay(data);
   })
 
   $('#reset').on('click', function(){
