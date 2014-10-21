@@ -24,6 +24,7 @@ $(document).ready(function(){
   $('#startConnection').on('click', function(){
     stopped = false;
     $('#intro').css('opacity', '0');
+    $('.tweetStreamDisplay').css('opacity', '1.0');
   })
 
 })
