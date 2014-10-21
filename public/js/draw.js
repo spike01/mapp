@@ -17,7 +17,7 @@ function draw() {
 }
 
 function addData(data) {
-  dataStore[dataStore.length] = [(data.coords[1]), (data.coords[0]), data.colour] 
+  dataStore[dataStore.length] = [(data.coords[1]), (data.coords[0]), data.colour];
 } 
 
 function streamDraw(data) {
