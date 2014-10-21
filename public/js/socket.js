@@ -12,7 +12,8 @@ $(document).ready(function(){
   $('#reset').on('click', function(){
     stopped = true;
     tweetNumber = 0;
-    $('#tweetNumber').text(tweetNumber + ' ');
+    _clearTweetNumber();
+    streamDisplayReset();
     canvasReset();
     dataStore = [];
   })
@@ -28,3 +29,7 @@ $(document).ready(function(){
   })
 
 })
+
+function _clearTweetNumber() {
+  $('#tweetNumber').text(tweetNumber + ' ');
+}
