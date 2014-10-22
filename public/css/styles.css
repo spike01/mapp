@@ -1,7 +1,7 @@
 body {
   background-color: #031D34;
   font-family: Helvetica Neue;
-  color: #FF8000;
+  color: #54A6E4;
 }
 
 #intro {
@@ -10,6 +10,7 @@ body {
   text-align: center;
   transition: opacity 1.0s ease;
   padding-top: 100px;
+  line-height: 20px;
 }
 
 #instructions {
@@ -27,7 +28,7 @@ body {
 }
 
 #about a {
-  color: #FF8000;
+  color: #54A6E4;
   text-decoration: none;
 }
 
@@ -50,11 +51,18 @@ body {
   display: block;
 }
 
+#positive {
+  color: green;
+}
+
+#negative {
+  color: red;
+}
+
 button {
   position: fixed;
-  border: solid 1px #FF8000;
+  border: solid 1px #54A6E4;
   background-color: rgba(0,0,0,0);
-  color: #FF8000;
   border-radius: 4px;
   font-size: 1em;
   font-family: Helvetica Neue;
@@ -114,9 +122,10 @@ div.timer {
 section.tweetStreamDisplay {
   width: 500px;
   height: 160px;
+  padding: 10px;
   overflow: hidden;
   position: absolute;
-  bottom: 5px;
+  top: 5px;
   left: 5px;
   opacity: 0.0;
   transition: opacity 1.5s ease-in;
@@ -125,6 +134,24 @@ section.tweetStreamDisplay {
 
 ul li {
   list-style-type: none;
-  opacity: 1.0;
-  transition: opacity 1.0s ease-in;
+}
+
+#slow {
+  width: 50px;
+  height: 30px;
+  color: #54A6E4;
+  top: 10px;
+  left: 520px;
+}
+
+#fast {
+  width: 50px;
+  height: 30px;
+  color: #54A6E4;
+  top: 10px;
+  left: 580px;
+}
+
+b {
+  color: #33658C;
 }

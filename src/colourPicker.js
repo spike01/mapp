@@ -5,7 +5,7 @@ exports.pickColour = function(sentiment) {
   		colour = _rgbToHex(255, sentiment, 0); }
   	else if (sentiment < 0) { sentiment = Math.round(((sentiment) / 5.0) * -255);
   		colour = _rgbToHex(sentiment, 255, 0); }
-  	else { colour = _rgbToHex(86, 101, 216) }
+  	else { colour = _rgbToHex(84, 166, 228) }
   return colour;
 };
 
