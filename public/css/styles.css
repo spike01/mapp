@@ -37,6 +37,8 @@ body {
   text-decoration: underline;
 }
 
+#about.modal { width: 400px; }
+
 #tweetNumber {
   font-size: 2em;
   font-weight: 600;
