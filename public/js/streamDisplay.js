@@ -10,7 +10,7 @@ function streamDisplay(data) {
 		var text = data.text;
 		var username = data.username;
 		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('.tweetStreamDisplay ul').fadeOut(fadeSpeed, function() {
-			console.log(this);
+			//console.log(this);
 			$(this).remove();
 		});
 		}
