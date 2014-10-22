@@ -20,11 +20,11 @@ function streamDisplay(data) {
 $('#fastSlow').on('click', function() {
 	onOff += 1
 	if (onOff % 2 === 0) {
-		$('#fastSlow').text('Fast');
+		$('#fastSlow').text('Faster');
 		fadeSpeed = 4000;
 		tweetRate = 150; }
 	else {
-		$('#fastSlow').text('Slow');
+		$('#fastSlow').text('Slower');
 		fadeSpeed = 1000;
 		tweetRate = 10; }
 });

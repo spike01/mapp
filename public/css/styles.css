@@ -137,7 +137,8 @@ ul li {
 }
 
 #fastSlow {
-  width: 50px;
+  width: 64px;
+  text-align: center;
   height: 30px;
   color: #54A6E4;
   top: 10px;
