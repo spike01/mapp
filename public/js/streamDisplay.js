@@ -2,6 +2,7 @@ var counter = 0;
 var tweetRate = 30;
 var fadeSpeed = 1000;
 var ready = true;
+var onOff = 0;
 
 function streamDisplay(data) {
 	counter += 1
@@ -16,15 +17,22 @@ function streamDisplay(data) {
     }
 
 
-$('#slow').on('click', function() {
-	fadeSpeed = 4000;
-	tweetRate = 150;
+$('#fastSlow').on('click', function() {
+	onOff += 1
+	if (onOff % 2 === 0) {
+		$('#fastSlow').text('Fast');
+		fadeSpeed = 4000;
+		tweetRate = 150; }
+	else {
+		$('#fastSlow').text('Slow');
+		fadeSpeed = 1000;
+		tweetRate = 10; }
 });
 
-$('#fast').on('click', function() {
-	fadeSpeed = 1000;
-	tweetRate = 10;
-});
+// $('#fast').on('click', function() {
+// 	fadeSpeed = 1000;
+// 	tweetRate = 10;
+// });
 
 function streamDisplayReset() {
     $('.tweetStreamDisplay ul').empty();

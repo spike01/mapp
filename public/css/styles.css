@@ -136,17 +136,7 @@ ul li {
   list-style-type: none;
 }
 
-#slow {
-  width: 50px;
-  height: 30px;
-  color: #54A6E4;
-  top: 50px;
-  left: 520px;
-  opacity: 0;
-  transition: opacity 1.5s ease-in;
-}
-
-#fast {
+#fastSlow {
   width: 50px;
   height: 30px;
   color: #54A6E4;

@@ -26,8 +26,7 @@ $(document).ready(function(){
     stopped = false;
     $('#intro').css('opacity', '0');
     $('.tweetStreamDisplay').css('opacity', '1.0');
-    $('#fast').css('opacity', '1.0');
-    $('#slow').css('opacity', '1.0');
+    $('#fastSlow').css('opacity', '1.0');
   })
 
 })
