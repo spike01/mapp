@@ -1,7 +1,7 @@
 body {
   background-color: #031D34;
   font-family: Helvetica Neue;
-  color: #FF8000;
+  color: #54A6E4;
 }
 
 #intro {
@@ -27,7 +27,7 @@ body {
 }
 
 #about a {
-  color: #FF8000;
+  color: #54A6E4;
   text-decoration: none;
 }
 
@@ -52,9 +52,8 @@ body {
 
 button {
   position: fixed;
-  border: solid 1px #FF8000;
+  border: solid 1px #54A6E4;
   background-color: rgba(0,0,0,0);
-  color: #FF8000;
   border-radius: 4px;
   font-size: 1em;
   font-family: Helvetica Neue;
