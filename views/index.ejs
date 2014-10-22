@@ -9,7 +9,12 @@
 <body>
 	
   <section id="intro">
-    <p>Click the play button to start.</p>
+  <p>We send thousands of tweets every second.</p>
+  <p>Some are <span id="positive"><em>positive</em></span>, some are <span id="negative"><em>negative</em></span>.</p>
+  <p>What if you could see them appear on a map, in real time?</p>
+  <!--p>We took tweets in English, Spanish, French and Turkish and analyzed their emotional content</p>
+  <p>(unemotional/unprocessed tweets stay blue)</p-->
+  <p>Click the play button to start.</p>
   </section>
 
   <canvas id="map"></canvas>
@@ -23,6 +28,8 @@
   <button id="startConnection"></button>
   <button id="stopConnection"></button>
   <button id="reset"></button>
+  <button id="fast">Slow</button>
+  <button id="slow">Fast</button>
 
   <section id="about">
     <a href="#">About</a>
@@ -44,5 +51,6 @@
   <script src="js/streamDisplay.js"></script>
   <script src="js/socket.js"></script>
   <script src="js/timer.js"></script>
+  <script src="js/mouseOver.js"></script>
 </body>
 </html>

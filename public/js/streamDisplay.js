@@ -1,16 +1,35 @@
 var counter = 0;
+var tweetRate = 30;
+var fadeSpeed = 1000;
+var ready = true;
 
 function streamDisplay(data) {
 	counter += 1;
-	if (counter % 300 === 0 && stopped === false) {
+	if (counter % tweetRate === 0 && stopped === false) {
 		var text = data.text;
 		var username = data.username;
-		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('.tweetStreamDisplay ul').fadeIn("slow");
-			$('.tweetStreamDisplay li:gt(0)').fadeOut(500, function(){
-        this.remove();
-      });
-  }	
-}
+		if (ready === true) {
+			ready = false;
+		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('.tweetStreamDisplay ul').fadeIn(fadeSpeed, function() {
+			$(this).fadeOut(fadeSpeed, function() {
+				$(this).remove();
+				ready = true;
+			});
+		});
+		}
+    }
+ }	
+
+
+$('#slow').on('click', function() {
+	fadeSpeed = 1000;
+	tweetRate = 20;
+});
+
+$('#fast').on('click', function() {
+	fadeSpeed = 0
+	tweetRate = 1
+});
 
 function streamDisplayReset() {
     $('.tweetStreamDisplay ul').empty();
