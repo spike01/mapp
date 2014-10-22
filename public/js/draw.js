@@ -17,7 +17,7 @@ function draw() {
 }
 
 function addData(data) {
-  dataStore[dataStore.length] = [(data.coords[1]), (data.coords[0]), data.colour];
+  dataStore[dataStore.length] = [(data.coords[0]), (data.coords[1]), data.colour];
 } 
 
 function streamDraw(data) {
@@ -26,8 +26,8 @@ function streamDraw(data) {
     tweetNumber += 1;
     $('#tweetNumber').text(tweetNumber + ' ');
     canvas.beginPath();
-    var cx = x((data.coords[1]*ratio));
-    var cy = y((data.coords[0])*ratio);
+    var cx = x((data.coords[0]*ratio));
+    var cy = y((data.coords[1])*ratio);
     canvas.arc(cx, cy, radius, 0, 2 * Math.PI, false);
     canvas.fillStyle = data.colour;
     canvas.fill();
