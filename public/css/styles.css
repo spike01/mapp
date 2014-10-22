@@ -50,6 +50,14 @@ body {
   display: block;
 }
 
+#positive {
+  color: green;
+}
+
+#negative {
+  color: red;
+}
+
 button {
   position: fixed;
   border: solid 1px #FF8000;
