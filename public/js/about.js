@@ -1,4 +1,8 @@
-// $( "a" ).click(function( event ) {
-//   event.preventDefault();
-//   $( this ).hide();
-// });
+$(document).ready(function(){
+  $("a").click(function(){
+    $( "a" ).animate({
+    height: "toggle",
+    opacity: "toggle"
+    }, "slow" );
+  });
+});
