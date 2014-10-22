@@ -1,14 +1,10 @@
 var express = require('express');
 var server = express();
-var formatTweet = require('./src/tweetFormatter.js').formatTweet;
-var stripPunctuationOf = require('./src/punctuationStripper.js').stripPunctuationOf;
-var analyseSentiment = require('./src/sentimentAnalysis.js').analyseSentiment;
-var pickColour = require('./src/colourPicker.js').pickColour;
 var globalEmitter = require('./src/globalEmitter.js');
 var http = require('http').Server(server);
 var io = require('socket.io').listen(http);
-var stripForSocket = require('./src/socketStripper.js').stripForSocket;
 var tweetStream = require('./src/twit.js');
+var streamProcess = require('./src/streamController.js').streamProcess;
 
 server.set('view engine', 'ejs');
 server.use(express.static(__dirname + '/public'));
@@ -25,16 +21,7 @@ io.on('connection', function(socket) {
     connections += 1;
     console.log('User connected.');
     globalEmitter.on('tweet', function(object) {
-    var formattedObject, strippedObject, sentiment, socketObject;
-    formattedObject = formatTweet(object);
-    strippedObject = stripPunctuationOf(formattedObject);
-    sentiment = analyseSentiment(strippedObject);
-    formattedObject.colour = pickColour(sentiment.averageSentiment);
-    socketObject = stripForSocket(formattedObject);
-    socketObject.moodWords = sentiment.moodWords;
-    socketObject.text = object.text;
-    socketObject.username = object.user.name;
-    //console.log(socketObject);
+    socketObject = streamProcess(object);
     socket.emit('object', socketObject);
   });
 
