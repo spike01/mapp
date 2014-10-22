@@ -10,6 +10,7 @@ body {
   text-align: center;
   transition: opacity 1.0s ease;
   padding-top: 100px;
+  line-height: 20px;
 }
 
 #instructions {
