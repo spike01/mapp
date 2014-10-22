@@ -1,4 +1,4 @@
-var canvas, x, y, width, height, ratio, radius;
+var canvas, x, y, width, height, ratio, radius, x_min, y_min;
 
 window.onload = window.onresize = function() {
 
@@ -25,7 +25,8 @@ window.onload = window.onresize = function() {
     .call(d3.behavior.zoom().x(x).y(y).scaleExtent([1, 400]).on("zoom", zoom))
     .node().getContext("2d");
 
-    zoom();
+    
+  zoom();
 
 };
 
@@ -33,7 +34,24 @@ function canvasReset() {
   canvas.clearRect(0, 0, width, height);
 }
 
+  x_min = 0;
+  x_max = width;
+  y_min = 0;
+  y_max = height;
+
 function zoom() {
-  canvasReset();
+   if (x.domain()[0] < x_min) {
+    zoom.translate([zoom.translate()[0] - x(x_min) + x.range()[0], zoom.translate()[1]]);
+  } else if (x.domain()[1] > x_max) {
+    zoom.translate([zoom.translate()[0] - x(x_max) + x.range()[1], zoom.translate()[1]]);
+  }
+
+  if (y.domain()[0] < y_min) {
+    zoom.translate([zoom.translate()[0], zoom.translate()[1] - y(y_min) + y.range()[0]]);
+  } else if (y.domain()[1] > y_max) {
+    zoom.translate([zoom.translate()[0], zoom.translate()[1] - y(y_max) + y.range()[1]]);
+  }
+
+ canvasReset();
   draw();
 }

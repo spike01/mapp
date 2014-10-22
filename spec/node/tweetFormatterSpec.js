@@ -7,7 +7,7 @@ describe("tweetFormatter", function() {
   })
 
   it("outputs the coordinates of a tweet so that there are no negative values", function() {
-    expect(formatTweet(unformattedTweet).coords).toEqual([ 63.84097, 207.92473 ]);
+    expect(formatTweet(unformattedTweet).coords).toEqual([207.92473, 63.84097]);
   })
 
   it("outputs the language of a tweet", function() {
