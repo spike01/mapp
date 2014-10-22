@@ -120,13 +120,13 @@ div.timer {
 }
 
 section.tweetStreamDisplay {
-  width: 500px;
-  height: 160px;
+  width: 480px;
+  height: 55px;
   padding: 10px;
   overflow: hidden;
   position: absolute;
   top: 5px;
-  left: 5px;
+
   opacity: 0.0;
   transition: opacity 1.5s ease-in;
 
@@ -140,8 +140,10 @@ ul li {
   width: 50px;
   height: 30px;
   color: #54A6E4;
-  top: 10px;
+  top: 50px;
   left: 520px;
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
 }
 
 #fast {
@@ -149,7 +151,9 @@ ul li {
   height: 30px;
   color: #54A6E4;
   top: 10px;
-  left: 580px;
+  left: 520px;
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
 }
 
 b {
