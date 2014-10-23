@@ -20,6 +20,8 @@ $(document).ready(function(){
     streamDisplayReset();
     canvasReset();
     dataStore = [];
+    $('#overlay-text').css('opacity', '1.0');
+    $('#overlay-text').html('<br><br><p>Press play to start the map again.</p>')
   })
 
   $('#stopConnection').on('click', function(){
@@ -28,8 +30,9 @@ $(document).ready(function(){
 
   $('#startConnection').on('click', function(){
     stopped = false;
-    $('#intro').css('opacity', '0');
+    $('#overlay-text').css('opacity', '0');
     $('#tweetStreamDisplay').css('opacity', '1.0');
+    $('.legend-container').css('opacity', '1.0');
   })
 
 })
