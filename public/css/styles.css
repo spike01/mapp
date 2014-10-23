@@ -122,6 +122,7 @@ label#positive {
   border-width: medium;
   display: none;
   background-color: #031d34;
+  text-align: center;
 }
 
 #tweetNumber {
