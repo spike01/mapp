@@ -9,8 +9,8 @@ $(document).ready(function(){
     streamDisplay(data);
   })
 
-  setTimeout(function(){ 
-    $('#click-play').addClass('animated fadeIn');
+  setTimeout(function(){
+    $('#click-play').css('opacity', '1.0');
   }, 4000)
 
   $('#reset').on('click', function(){
