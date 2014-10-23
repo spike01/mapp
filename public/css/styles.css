@@ -1,7 +1,82 @@
 body {
   background-color: #031D34;
-  font-family: Helvetica Neue;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #54A6E4;
+}
+
+.legend-container {
+  width: 220px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.legend {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+label#negative {
+  float: left;
+}
+
+label#neutral {
+  float: left;
+  margin-left: 37px;
+}
+
+label#positive {
+  float: right;
+}
+
+.legend-container label {
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.legend:nth-of-type(1) {
+  background: #FF0000;
+}
+
+.legend:nth-of-type(2) {
+  background: #FF3300;
+}
+
+.legend:nth-of-type(3) {
+  background: #FF6600;
+}
+
+.legend:nth-of-type(4) {
+  background: #FF9900;
+}
+
+.legend:nth-of-type(5) {
+  background: #FFCC00;
+}
+
+.legend:nth-of-type(6) {
+  background: #54A6E4;
+}
+
+.legend:nth-of-type(7) {
+  background: #CBFF00;
+}
+
+.legend:nth-of-type(8) {
+  background: #98FF00;
+}
+
+.legend:nth-of-type(9) {
+  background: #65FF00;
+}
+
+.legend:nth-of-type(10) {
+  background: #32FF00;
+}
+
+.legend:nth-of-type(11) {
+  background: #00FF00;
 }
 
 #intro {
@@ -59,11 +134,11 @@ body {
 }
 
 #positive {
-  color: green;
+  color: #00FF00;
 }
 
 #negative {
-  color: red;
+  color: #FF0000;
 }
 
 button {
