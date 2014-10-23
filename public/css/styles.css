@@ -1,7 +1,12 @@
 body {
   background-color: #031D34;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #54A6E4;
+  font-family: 'Lato', Helvetica Neue, Helvetica, Arial, sans-serif;
+  /*color: #54A6E4;*/
+  color: #FFFFFF;
+}
+
+#intro {
+  color: #FFF;
 }
 
 .legend-container {
@@ -22,6 +27,7 @@ label#negative {
 }
 
 label#neutral {
+  color: #54A6E4;
   float: left;
   margin-left: 37px;
 }
@@ -85,6 +91,9 @@ label#positive {
   transition: opacity 1.0s ease;
   padding-top: 100px;
   line-height: 20px;
+  font-size: 2em;
+  line-height: 1.5em;
+  font-weight: 100;
 }
 
 #instructions {
@@ -100,7 +109,7 @@ label#positive {
 }
 
 #about a {
-  color: #54A6E4;
+  color: #FFF;
   text-decoration: none;
 }
 
@@ -124,8 +133,9 @@ label#positive {
 }
 
 #tweetCount {
+  color: #54A6E4;
   position: fixed;
-  left:0;
+  left: 0;
   right: 0;
   text-align: center;
   display: block;
@@ -133,10 +143,12 @@ label#positive {
 
 #positive {
   color: #00FF00;
+  font-weight: 300;
 }
 
 #negative {
   color: #FF0000;
+  font-weight: 300;
 }
 
 button {
@@ -145,6 +157,10 @@ button {
   border-radius: 4px;
   font-size: 1em;
   font-family: Helvetica Neue;
+}
+
+button:hover {
+  border: solid 1px #FFF;
 }
 
 #transport {
@@ -224,5 +240,5 @@ div.timer {
 }
 
 b {
-  color: #44769E;
+  color: #54A6E4;
 }
