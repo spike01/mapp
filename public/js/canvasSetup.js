@@ -1,9 +1,11 @@
 var canvas, x, y, width, height, ratio, radius, x_min, y_min;
+var viewportWidth;
+var viewportHeight;
 
 window.onload = window.onresize = function() {
 
-  var viewportWidth = window.innerWidth;
-  var viewportHeight = window.innerHeight;
+  viewportWidth = window.innerWidth;
+  viewportHeight = window.innerHeight;
   width = viewportWidth;
   height = viewportWidth / 2;
   ratio = viewportWidth / 360;
