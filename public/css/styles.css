@@ -80,7 +80,6 @@ label#positive {
 }
 
 #intro {
-  /*background-color: #ddd;*/
   width: 100%;
   text-align: center;
   transition: opacity 1.0s ease;
@@ -115,9 +114,7 @@ label#positive {
   border-width: medium;
   display: none;
   background-color: #031d34;
- }
-
-
+}
 
 #tweetNumber {
   font-size: 2em;
@@ -132,7 +129,6 @@ label#positive {
   right: 0;
   text-align: center;
   display: block;
-
 }
 
 #positive {
@@ -155,7 +151,7 @@ button {
   position: fixed;
   left: 0;
   right: 0;
-  width: 110px;
+  width: 120px;
   margin: 45px auto 0;
 }
 
@@ -174,7 +170,7 @@ button:focus {
 }
 
 #stopConnection {
-  margin-left: 10px;
+  margin-left: 15px;
   background: url(../svg/ic_pause_48px.svg);
   background-size: 20px 20px;
   background-repeat: no-repeat;
@@ -210,35 +206,23 @@ div.timer {
   margin:5px;
 }
 
-section.tweetStreamDisplay {
-  width: 480px;
-  height: 55px;
-  padding: 10px;
+#tweetStreamDisplay {
+  z-index: 2;
+  width: 75%;
+  height: 2.7em;
   overflow: hidden;
-  position: absolute;
-  top: 5px;
-
+  margin-top: 1%;
+  margin-left: 1%;
+  position: fixed;
   opacity: 0.0;
-  transition: opacity 1.5s ease-in;
-
+  line-height: 1.2em;
+  transition: opacity 0.2s ease-in;
 }
 
-ul li {
+#tweetStreamDisplay ul {
   list-style-type: none;
 }
 
-#fastSlow {
-  position: fixed;
-  width: 64px;
-  text-align: center;
-  height: 30px;
-  color: #54A6E4;
-  top: 10px;
-  left: 520px;
-  opacity: 0;
-  transition: opacity 1.5s ease-in;
-}
-
 b {
-  color: #33658C;
+  color: #44769E;
 }

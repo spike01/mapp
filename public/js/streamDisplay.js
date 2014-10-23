@@ -9,32 +9,23 @@ function streamDisplay(data) {
 	if (counter % tweetRate === 0 && stopped === false) {
 		var text = data.text;
 		var username = data.username;
-		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('.tweetStreamDisplay ul').fadeOut(fadeSpeed, function() {
-			//console.log(this);
+		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('#tweetStreamDisplay ul').fadeOut(fadeSpeed, function() {
 			$(this).remove();
 		});
-		}
-    }
+	}
+}
 
 
-$('#fastSlow').on('click', function() {
+$('#tweetStreamDisplay').on('click', function() {
 	onOff += 1
 	if (onOff % 2 === 0) {
-		$('#fastSlow').text('Faster');
 		fadeSpeed = 4000;
 		tweetRate = 150; }
 	else {
-		$('#fastSlow').text('Slower');
 		fadeSpeed = 1000;
 		tweetRate = 10; }
 });
 
-// $('#fast').on('click', function() {
-// 	fadeSpeed = 1000;
-// 	tweetRate = 10;
-// });
-
 function streamDisplayReset() {
-    $('.tweetStreamDisplay ul').empty();
+  $('#tweetStreamDisplay ul').empty();
 }
-
