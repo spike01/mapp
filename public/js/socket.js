@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   setTimeout(function(){
     $('#click-play').css('opacity', '1.0');
-  }, 4000)
+  }, 5000)
 
   $('#reset').on('click', function(){
     stopped = true;
