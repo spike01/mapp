@@ -11,7 +11,7 @@ window.onload = window.onresize = function() {
   ratio = viewportWidth / 360;
   radius = viewportWidth / 1000;
 
-  $('#intro').css('height', height-200 + 'px');
+  $('#intro').css('height', height-370 + 'px');
 
   x = d3.scale.linear()
     .domain([0, width])

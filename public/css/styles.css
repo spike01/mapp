@@ -1,12 +1,7 @@
 body {
   background-color: #031D34;
   font-family: 'Lato', Helvetica Neue, Helvetica, Arial, sans-serif;
-  /*color: #54A6E4;*/
   color: #FFFFFF;
-}
-
-#intro {
-  color: #FFF;
 }
 
 .legend-container {
@@ -89,12 +84,16 @@ label#positive {
   width: 100%;
   text-align: center;
   transition: opacity 1.0s ease;
-  padding-top: 100px;
+  padding-top: 220px;
   line-height: 20px;
   font-size: 2em;
   line-height: 1.5em;
   font-weight: 100;
 }
+
+/*#click-play {
+  display: none;
+}*/
 
 #instructions {
   line-height : 2.8em;
@@ -225,7 +224,7 @@ div.timer {
 #tweetStreamDisplay {
   z-index: 2;
   width: 75%;
-  height: 2.7em;
+  height: 3.5em;
   overflow: hidden;
   margin-top: 1%;
   margin-left: 1%;

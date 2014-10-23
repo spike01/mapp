@@ -9,6 +9,10 @@ $(document).ready(function(){
     streamDisplay(data);
   })
 
+  setTimeout(function(){ 
+    $('#click-play').addClass('animated fadeIn');
+  }, 4000)
+
   $('#reset').on('click', function(){
     stopped = true;
     tweetNumber = 0;
