@@ -1,6 +1,6 @@
 var counter = 0;
-var tweetRate = 150;
-var fadeSpeed = 4000;
+var tweetRate = 500;
+var fadeSpeed = 5000;
 var ready = true;
 var onOff = 0;
 
@@ -15,12 +15,11 @@ function streamDisplay(data) {
 	}
 }
 
-
 $('#tweetStreamDisplay').on('click', function() {
 	onOff += 1
 	if (onOff % 2 === 0) {
-		fadeSpeed = 4000;
-		tweetRate = 150; }
+		fadeSpeed = 5000;
+		tweetRate = 500; }
 	else {
 		fadeSpeed = 1000;
 		tweetRate = 10; }

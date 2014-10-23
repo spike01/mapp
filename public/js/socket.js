@@ -33,6 +33,8 @@ $(document).ready(function(){
     $('#overlay-text').css('opacity', '0');
     $('#tweetStreamDisplay').css('opacity', '1.0');
     $('.legend-container').css('opacity', '1.0');
+    $('#instructions').css('opacity', '1.0');
+    $('#about').css('opacity', '1.0');
   })
 
 })
