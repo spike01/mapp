@@ -37,10 +37,10 @@ body {
   text-decoration: underline;
 }
 
-#about.modal { width: 400px;
+#about-modal.modal { width: 400px;
   border-style: solid;
+  border-color: black;
   border-width: medium;
-
  }
 
 #tweetNumber {
