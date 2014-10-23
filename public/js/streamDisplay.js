@@ -1,6 +1,6 @@
 var counter = 0;
-var tweetRate = 30;
-var fadeSpeed = 1000;
+var tweetRate = 150;
+var fadeSpeed = 4000;
 var ready = true;
 var onOff = 0;
 
