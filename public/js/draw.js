@@ -1,6 +1,8 @@
 var dataStore = [];
 var canvas, d, cx, cy, x, y, ratio, radius, stopped, tweetNumber = 0;
 
+var pollockMode = false;
+
 function draw() {
   var i = -1, n = dataStore.length, d, cx, cy;
   while (++i < n) {
@@ -8,12 +10,16 @@ function draw() {
     d = dataStore[i];
     cx = x(d[0]*ratio);
     cy = y(d[1]*ratio);
-    canvas.fillStyle = d[2];
+    canvas.fillStyle = pollockMode === true ? jacksonPollockMode() : d[2]; 
     canvas.moveTo(cx, cy);
-    canvas.arc(cx, cy, radius, 0, 2 * Math.PI);
+    canvas.arc(cx, cy, selectRadius(5), 0, 2 * Math.PI);
     canvas.fill();
     canvas.closePath();
   }
+}
+
+function selectRadius(number) {
+  return pollockMode === true ? Math.random()*number : radius
 }
 
 function addData(data) {

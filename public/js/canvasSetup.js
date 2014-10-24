@@ -33,7 +33,11 @@ window.onload = window.onresize = function() {
 };
 
 function canvasReset() {
-  canvas.clearRect(0, 0, width, height);
+  if (pollockMode === true ) { canvas
+  }
+  else { 
+    canvas.clearRect(0, 0, width, height);
+  }
 }
 
 function zoom() {
