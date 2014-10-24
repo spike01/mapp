@@ -14,6 +14,7 @@ $(document).ready(function(){
   }, 5000)
 
   $('#reset').on('click', function(){
+    artModeVar = false;
     stopped = true;
     tweetNumber = 0;
     _clearTweetNumber();

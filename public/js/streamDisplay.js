@@ -25,6 +25,16 @@ $('#tweetStreamDisplay').on('click', function() {
 		tweetRate = 10; }
 });
 
+$('#yohort').on('click', function() {
+	artModeVar = true;
+	stopped = true;
+	$('#overlay-text').css('opacity', '1.0');
+    $('#overlay-text').html('<br><br><p>Art mode enabled!<br>  Scroll, zoom and enjoy!  <br>Press stop to reset.</p>')
+
+
+
+})
+
 function streamDisplayReset() {
   $('#tweetStreamDisplay ul').empty();
 }
