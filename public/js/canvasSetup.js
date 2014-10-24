@@ -33,7 +33,7 @@ window.onload = window.onresize = function() {
 };
 
 function canvasReset() {
-  if (pollockMode === true ) { canvas
+  if (artModeVar === true ) { canvas
   }
   else { 
     canvas.clearRect(0, 0, width, height);
