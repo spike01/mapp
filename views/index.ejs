@@ -4,9 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Mapp</title>
   <link rel="stylesheet" href="css/reset.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/animate.min.css">
   <link rel="stylesheet" href="css/jquery.modal.css" type="text/css" media="screen" />
 </head>
 <body>
@@ -28,14 +27,14 @@
     <article class="legend"></article>
     <article class="legend"></article>
     <br clear="all">
-    <label id="negative">Negative</label>
-    <label id="neutral">Neutral</label>
-    <label id="positive">Positive</label>
+    <label class="negative">Negative</label>
+    <label class="neutral">Neutral</label>
+    <label class="positive">Positive</label>
   </section>
 
-  <section id="intro">
+  <section id="overlay-text">
     <p>We send thousands of tweets every second.</p>
-    <p>Some are <span id="positive"><em>positive</em></span>, some are <span id="negative"><em>negative</em></span>.</p>
+    <p>Some are <span class="positive"><em>positive</em></span>, some are <span class="negative"><em>negative</em></span>.</p>
     <p>What if you could see a mood map of the world in real time?</p>
     <br>
     <p id="click-play">Click the play button to start.</p>
@@ -43,27 +42,35 @@
 
   <canvas id="map"></canvas>
 
-  <section id="instructions">
-    <p>Scroll to zoom. Click and drag to move around.</p>
-  </section>
-
-  <span id="tweetCount"><h1 id="tweetNumber">0 </h1>tweets</span>
-
-  <section id="transport">
-    <button id="startConnection"></button>
-    <button id="stopConnection"></button>
-    <button id="reset"></button>
-  </section>
-
-  <section id="about">
-    <a href="#about-modal" rel="modal:open">About</a>
-  </section>
-  <section id="about-modal">
+  <section id="about-modal" class="modal-display">
     <p>This is where we will have our about section. Maybe even the story behind it</p>
   </section>
-  <!--<div class="timer">-->
-    <!--<span class="hour">00</span>:<span class="minute">00</span>:<span class="second">00</span>-->
-  <!--</div>-->
+
+  <section id="credits-modal" class="modal-display">
+    <p><a href="https://github.com/google/material-design-icons/releases/tag/1.0.0">Material Design Icons</a> by <a href="http://www.google.com/design/">Google Design</a>, used under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>. Colours changed to white and blue.</p>
+
+    <p>Contains information from <a href="http://neuro.imm.dtu.dk/wiki/AFINN">AFINN</a>, which is made available here under the <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> (ODbL). Translated into Bahasa Indonesia, Danish, French, German, Portuguese, Russian, Spanish, and Turkish with <a href="http://translate.google.com/">Google Translate</a>.</p>
+  </section>
+
+  <footer>
+    <section id="instructions">
+      <p>Scroll to zoom. Click and drag to move around.</p>
+      <p>Click the tweet display to toggle speed.</p>
+    </section>
+
+    <section id="tweetCount"><h1 id="tweetNumber">0 </h1>tweets</section>
+
+    <section id="about">
+      <a href="#about-modal" rel="modal:open">About</a><br>
+      <a href="#credits-modal" rel="modal:open">Credits</a>
+    </section>
+
+    <section id="transport">
+      <button id="startConnection"></button>
+      <button id="stopConnection"></button>
+      <button id="reset"></button>
+    </section>
+  </footer>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>

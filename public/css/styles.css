@@ -2,13 +2,19 @@ body {
   background-color: #031D34;
   font-family: 'Lato', Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #FFFFFF;
+  font-weight: 300;
+  line-height: 1.5em;
 }
 
 .legend-container {
+  position: fixed;
+  z-index: 2;
   width: 220px;
   float: right;
   margin-top: 1%;
-  margin-right: 1%;
+  right: 1%;
+  opacity: 0;
+  transition: opacity 1.0s ease;
 }
 
 .legend {
@@ -17,23 +23,25 @@ body {
   float: left;
 }
 
-label#negative {
+label.negative {
   float: left;
 }
 
-label#neutral {
+label.neutral {
   color: #54A6E4;
   float: left;
   margin-left: 37px;
 }
 
-label#positive {
+label.positive {
   float: right;
 }
 
 .legend-container label {
   font-size: 0.8em;
+  line-height: 0.8em;
   margin-top: 5px;
+  font-weight: 400;
 }
 
 .legend:nth-of-type(1) {
@@ -80,33 +88,45 @@ label#positive {
   background: #00FF00;
 }
 
-#intro {
+#overlay-text {
   width: 100%;
   text-align: center;
   transition: opacity 1.0s ease;
-  padding-top: 10%;
-  line-height: 20px;
+  padding-top: 11%;
   font-size: 2em;
-  line-height: 1.5em;
   font-weight: 100;
+  line-height: 1.5em;
 }
 
 #click-play {
-  /*display: none;*/
   opacity: 0;
   transition: opacity 1.0s ease;
 }
 
-#instructions {
-  line-height : 2.8em;
-  margin-left: 20px;
+footer {
   position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 3%;
+}
+
+#instructions {
+  float: left;
+  width: 31%;
+  padding-left: 2%;
+  padding-top: 2em;
+  opacity: 0;
+  transition: opacity 1.0s ease;
 }
 
 #about {
-  position: fixed;
-  right: 20px;
-  line-height: 2.8em;
+  float: right;
+  width: 31%;
+  text-align: right;
+  padding-right: 2%;
+  padding-top: 2em;
+  opacity: 0;
+  transition: opacity 1.0s ease;
 }
 
 #about a {
@@ -118,37 +138,45 @@ label#positive {
   text-decoration: underline;
 }
 
-#about-modal { width: 400px;
-  border-style: solid;
-  border-color: black;
-  border-width: medium;
+.modal-display {
   display: none;
-  background-color: #031d34;
-  text-align: center;
 }
 
-#tweetNumber {
-  font-size: 2em;
-  font-weight: 600;
-  margin: 0;
-  display: inline;
+.modal-display p {
+  margin-bottom: 0.8em;
+}
+
+.modal-display a {
+  color: #54A6E4;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.modal-display a:hover {
+  text-decoration: underline;
 }
 
 #tweetCount {
   color: #54A6E4;
-  position: fixed;
-  left: 0;
-  right: 0;
+  width: 34%;
   text-align: center;
-  display: block;
+  float: left;
+  font-weight: 400;
 }
 
-#positive {
+#tweetNumber {
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: 600;
+  display: inline;
+}
+
+.positive {
   color: #00FF00;
   font-weight: 300;
 }
 
-#negative {
+.negative {
   color: #FF0000;
   font-weight: 300;
 }
@@ -157,8 +185,10 @@ button {
   border: solid 1px #54A6E4;
   background-color: rgba(0,0,0,0);
   border-radius: 4px;
-  font-size: 1em;
-  font-family: Helvetica Neue;
+}
+
+button:focus {
+  outline: none;
 }
 
 button:hover {
@@ -166,15 +196,8 @@ button:hover {
 }
 
 #transport {
-  position: fixed;
-  left: 0;
-  right: 0;
-  width: 120px;
-  margin: 45px auto 0;
-}
-
-button:focus {
-  outline: none;
+  width: 150px;
+  margin: 50px auto 0;
 }
 
 #startConnection {
@@ -183,8 +206,8 @@ button:focus {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 #startConnection:hover {
@@ -200,8 +223,8 @@ button:focus {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 #stopConnection:hover {
@@ -217,8 +240,8 @@ button:focus {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 #reset:hover {
@@ -235,16 +258,6 @@ canvas {
   margin: 0;
 }
 
-div.timer {
-  width:190px;
-  height:50px;
-  line-height:50px;
-  font-size:36px;
-  font-family:"Courier New", Courier, monospace;
-  text-align:center;
-  margin:5px;
-}
-
 #tweetStreamDisplay {
   z-index: 2;
   width: 75%;
@@ -255,7 +268,9 @@ div.timer {
   position: fixed;
   opacity: 0.0;
   line-height: 1.2em;
-  transition: opacity 0.2s ease-in;
+  transition: opacity 1.0s ease-in;
+  cursor: pointer;
+  cursor: hand;
 }
 
 #tweetStreamDisplay ul {
