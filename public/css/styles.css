@@ -288,11 +288,6 @@ b {
   color: #54A6E4;
 }
 
-#yohort:hover {
-  font-weight: 400;
-  color: #9A5CB4;
-}
-
 #yohort {
-  color: white;
+  color: #9A5CB4;
 }
