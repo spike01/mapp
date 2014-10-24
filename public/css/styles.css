@@ -138,6 +138,13 @@ footer {
   text-decoration: underline;
 }
 
+.twitter-share-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1.4em;
+  margin-bottom: 0.8em;
+}
+
 .modal-display {
   display: none;
 }
@@ -279,4 +286,9 @@ canvas {
 
 b {
   color: #54A6E4;
+}
+
+#yohort:hover {
+  font-weight: 400;
+  color: #9A5CB4;
 }
