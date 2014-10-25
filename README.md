@@ -1,7 +1,7 @@
 tweetMapp
 =========
 
-tweetMapp was built by [Elliot](http://github.com/ElliotLewis8923), [Javier](http://github.com/silver-io), [Spike](http://github.com/spike01), and I for our final project at Makers Academy.
+tweetMapp was built by [Elliot](http://github.com/ElliotLewis8923), [Javier](http://github.com/silver-io), [Spike](http://github.com/spike01), and [Ethel](http://github.com/ch2ch3) for our final project at Makers Academy.
 
 Around the world, around 8000 tweets are sent per second. But what do people tweet about? Our project visualises the moods of world regions based on tweets. We process roughly 3000 tweets a minute live from Twitter's public stream. Each word is analysed for emotional content using the [AFINN database](http://neuro.imm.dtu.dk/wiki/AFINN) and given a score, e.g. +3 for 'happy' and -2 for 'sad'. The average score of a tweet determines its colour. Finally, the tweet is plotted on a HTML Canvas using the coordinates it was sent from.
 
