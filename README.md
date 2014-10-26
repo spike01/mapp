@@ -22,12 +22,12 @@ How to run tests
 ----------------
 Clone the repository:
 ```shell
-$ git clone git@github.com:ch2ch3/tweetmapp.git
+$ git clone git@github.com:spike01/mapp.git
 ```
 
 Change into the directory:
 ```shell
-$ cd tweetmapp
+$ cd mapp
 ```
 
 Install dependencies:
