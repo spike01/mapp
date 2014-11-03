@@ -1,6 +1,6 @@
 var stopped = true;
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   var socket = io.connect('/');
 
@@ -13,11 +13,24 @@ $(document).ready(function(){
     $('#click-play').css('opacity', '1.0');
   }, 3500)
 
-  $('#reset').on('click', function(){
-    artModeVar = false;
+  $('#play').on('click', function(){
+    stopped = false;
+    $('#overlay-text').css('opacity', '0');
+    $('#tweet-stream-display').css('opacity', '1.0');
+    $('#legend-container').css('opacity', '1.0');
+    $('#instructions').css('opacity', '1.0');
+    $('#about').css('opacity', '1.0');
+  })
+
+  $('#pause').on('click', function(){
     stopped = true;
-    tweetNumber = 0;
-    _clearTweetNumber();
+  })
+
+  $('#stop').on('click', function(){
+    artModeOn = false;
+    stopped = true;
+    tweetCount = 0;
+    _clearTweetCount();
     streamDisplayReset();
     canvasReset();
     dataStore = [];
@@ -25,21 +38,15 @@ $(document).ready(function(){
     $('#overlay-text').html('<br><br><p>Press play to start the map again.</p>')
   })
 
-  $('#stopConnection').on('click', function(){
+  $('#yohort').on('click', function() {
+    artModeOn = true;
     stopped = true;
-  })
-
-  $('#startConnection').on('click', function(){
-    stopped = false;
-    $('#overlay-text').css('opacity', '0');
-    $('#tweetStreamDisplay').css('opacity', '1.0');
-    $('.legend-container').css('opacity', '1.0');
-    $('#instructions').css('opacity', '1.0');
-    $('#about').css('opacity', '1.0');
+    $('#overlay-text').css('opacity', '1.0');
+    $('#overlay-text').html('<br><p>Art mode enabled!<br>  Scroll, zoom and enjoy!<br>Press stop to reset.</p>')
   })
 
 })
 
-function _clearTweetNumber() {
-  $('#tweetNumber').text(tweetNumber + ' ');
+function _clearTweetCount() {
+  $('#tweet-count').text(tweetCount + ' ');
 }

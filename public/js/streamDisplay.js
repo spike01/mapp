@@ -1,40 +1,37 @@
 var counter = 0;
-var tweetRate = 500;
-var fadeSpeed = 5000;
-var ready = true;
-var slowMode = true;
+var readableModeOn = true;
+var readableTweetRate = 500;
+var readableFadeSpeed = 5000;
+var fastTweetRate = 10;
+var fastFadeSpeed = 1000;
+var tweetRate = readableTweetRate;
+var fadeSpeed = readableFadeSpeed;
 
 function streamDisplay(data) {
 	counter += 1
 	if (counter % tweetRate === 0 && stopped === false) {
 		var text = data.text;
 		var username = data.username;
-		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('#tweetStreamDisplay ul').fadeOut(fadeSpeed, function() {
+		$('<li>' + '<b>@' + username + ':</b> ' + text + '</li>').prependTo('#tweet-stream-display ul').fadeOut(fadeSpeed, function() {
 			$(this).remove();
 		});
 	}
 }
 
-$('#tweetStreamDisplay').on('click', function() {
-	slowMode = !slowMode
-	if (slowMode === true) {
-		fadeSpeed = 5000;
-		tweetRate = 500; }
-	else {
-		fadeSpeed = 1000;
-		tweetRate = 10; }
+function toggleReadableMode() {
+	readableModeOn = !readableModeOn;
+}
+
+function setStreamDisplaySpeed() {
+	fadeSpeed = readableModeOn === true ? readableFadeSpeed : fastFadeSpeed
+	tweetRate = readableModeOn === true ? readableTweetRate : fastTweetRate
+}
+
+$('#tweet-stream-display').on('click', function() {
+	toggleReadableMode();
+	setStreamDisplaySpeed();
 });
 
-$('#yohort').on('click', function() {
-	artModeVar = true;
-	stopped = true;
-	$('#overlay-text').css('opacity', '1.0');
-    $('#overlay-text').html('<br><br><p>Art mode enabled!<br>  Scroll, zoom and enjoy!  <br>Press stop to reset.</p>')
-
-
-
-})
-
 function streamDisplayReset() {
-  $('#tweetStreamDisplay ul').empty();
+  $('#tweet-stream-display ul').empty();
 }

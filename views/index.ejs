@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>tweetMapp</title>
+  <meta charset="UTF-8">
+  <title>tweetMapp</title>
   <link rel="stylesheet" href="css/reset.css">
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css">
@@ -10,11 +10,11 @@
 </head>
 <body>
 
-  <section id="tweetStreamDisplay">
+  <section id="tweet-stream-display">
     <ul></ul>
   </section>
 
-  <section class="legend-container">
+  <section id="legend-container">
     <article class="legend"></article>
     <article class="legend"></article>
     <article class="legend"></article>
@@ -60,7 +60,7 @@
       <p>Click the tweet display to toggle speed.</p>
     </section>
 
-    <section id="tweetCount"><h1 id="tweetNumber">0 </h1>tweets</section>
+    <section id="tweet-count-text"><h1 id="tweet-count">0 </h1>tweets</section>
 
     <section id="about">
       <a href="#about-modal" rel="modal:open">About</a><br>
@@ -68,9 +68,9 @@
     </section>
 
     <section id="transport">
-      <button id="startConnection"></button>
-      <button id="stopConnection"></button>
-      <button id="reset"></button>
+      <button id="play"></button>
+      <button id="pause"></button>
+      <button id="stop"></button>
     </section>
   </footer>
 
@@ -82,7 +82,6 @@
   <script src="js/draw.js"></script>
   <script src="js/streamDisplay.js"></script>
   <script src="js/socket.js"></script>
-  <script src="js/about.js"></script>
   <script src="js/artMode.js"></script>
 </body>
 </html>
