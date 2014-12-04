@@ -8,6 +8,7 @@ describe('homepage', function() {
   var browser;
 
   before(function() {
+    console.log(this);
     this.server = server.listen(3000);
     browser = new Browser({ site: 'http://localhost:3000' });
   });
