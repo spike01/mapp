@@ -4,6 +4,7 @@ var streamProcess = require('./streamController.js').streamProcess;
 var socket = function(io){
 
 io.on('connection', function(socket) { 
+
     var connections = 0;
     console.log("socket.io server created");
     if (connections === 0 ) { tweetStream.openStream(); }

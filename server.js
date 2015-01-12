@@ -2,7 +2,7 @@ var express = require('express');
 var server = express();
 var http = require('http').Server(server);
 var io = require('socket.io').listen(http);
-var socketControl = require('./src/socketControl.js')(io);
+var socket = require('./src/socketControl.js')(io);
 
 server.set('view engine', 'ejs');
 server.use(express.static(__dirname + '/public'));
